@@ -17,7 +17,7 @@
 </div>
 <div class="progress"><i id="prog"></i></div>
 <main>
-<section class="page" data-name="시작" data-acc="#1f9d74"><div class="cover"><span class="tag">2차시</span><h1>보드를 켜고 말을 걸기</h1><p>선을 꽂기 전에 핀 번호 두 종류를 구분하고, Thonny로 초록 LED를 켭니다.</p><ol><li>핀 번호</li><li>꽂으면 안 되는 곳</li><li>Thonny 연결</li><li>초록 LED 다섯 번</li></ol></div></section><section class="page" data-name="핀 번호" data-acc="#1f9d74"><div class="head"><div class="num">01</div><div><h2>핀 번호</h2></div></div><div class="easy"><b class="t">한 줄</b><span>코드에 쓰는 이름은 <b>GP 번호</b>이고, 보드 가장자리를 세는 것은 <b>핀 번호</b>입니다. GP14는 가장자리 19번입니다. USB를 위로 두면 왼쪽 위가 1번, 오른쪽 위가 40번입니다.</span></div>
+<section class="page" data-name="시작" data-acc="#1f9d74"><div class="cover"><span class="tag">2차시</span><h1>보드를 켜고 말을 걸기</h1><p>선을 꽂기 전에 핀 번호 두 종류를 구분하고, Thonny로 초록 LED를 켭니다.</p><ol><li>핀 번호</li><li>브레드보드에 꽂기</li><li>Thonny 연결</li><li>초록 LED 다섯 번</li></ol></div></section><section class="page" data-name="핀 번호" data-acc="#1f9d74"><div class="head"><div class="num">01</div><div><h2>핀 번호</h2></div></div><div class="easy"><b class="t">한 줄</b><span>코드에 쓰는 이름은 <b>GP 번호</b>이고, 보드 가장자리를 세는 것은 <b>핀 번호</b>입니다. GP14는 가장자리 19번입니다. USB를 위로 두면 왼쪽 위가 1번, 오른쪽 위가 40번입니다.</span></div>
   <div class="card"><table>
   <tr><th>부품</th><th>GP</th><th>가장자리</th></tr>
   <tr><td>바깥 LED</td><td>14</td><td>19, 짧은 다리는 GND 18</td></tr>
@@ -25,8 +25,22 @@
   <tr><td>부저</td><td>13</td><td>17</td></tr>
   <tr><td>센서 신호</td><td>28</td><td>34. 전원은 VBUS 40</td></tr>
   <tr><td>초록 LED</td><td>25</td><td>보드 위. 핀에 안 나옴</td></tr>
-  </table></div></section><section class="page" data-name="안전" data-acc="#1f9d74"><div class="head"><div class="num">02</div><div><h2>안전</h2></div></div><div class="callout stop"><b>꽂으면 안 되는 곳.</b> 핀 40 VBUS와 핀 39는 5V입니다. 버튼이나 GP 핀에 닿으면 보드가 상합니다. 핀 37은 전원 끄기용이라 비웁니다. 3V3과 GND를 선 하나로 바로 잇지 않습니다. 선을 바꿀 때는 USB를 뽑습니다.</div>
-  <div class="card"><h3>브레드보드</h3><p>가운데 홈을 기준으로 위아래가 끊겨 있습니다. 세로 구멍 다섯 개가 한 줄입니다. 피코는 그 홈에 걸치듯 꽂습니다. 오늘은 피코만 USB로 연결합니다.</p></div></section><section class="page" data-name="Thonny" data-acc="#1f9d74"><div class="head"><div class="num">03</div><div><h2>Thonny</h2></div></div><div class="card"><ol class="vsteps">
+  </table></div></section><section class="page" data-name="꽂기" data-acc="#1f9d74"><div class="head"><div class="num">02</div><div><h2>꽂기</h2></div></div><div class="callout stop"><b>꽂으면 안 되는 곳.</b> 핀 40 VBUS와 핀 39는 5V입니다. 버튼이나 GP 핀에 닿으면 보드가 상합니다. 핀 37은 전원 끄기용이라 비웁니다. 3V3과 GND를 선 하나로 바로 잇지 않습니다. 선을 바꿀 때는 USB를 뽑습니다.</div>
+  <div class="card"><h3>브레드보드</h3><p>그림처럼 홈 왼쪽 다섯 구멍은 서로 이어지고, 오른쪽 다섯 구멍도 서로 이어집니다. 홈을 넘으면 끊깁니다. 피코는 그 홈에 걸치듯 꽂습니다. 오늘은 피코만 USB로 연결합니다.</p></div>
+<figure class="fig">
+  <img src="../img/breadboard-rows.svg" alt="구멍 다섯 개가 한 줄">
+  <figcaption>같은 색 다섯 구멍이 한 줄입니다. 홈을 넘으면 이어지지 않아요</figcaption>
+</figure>
+<figure class="fig">
+  <img src="../img/pico-on-board.svg" alt="피코는 홈에 걸치듯 꽂아요">
+  <figcaption>금속 다리가 안 보일 때까지 눌러요. 금속 다리가 보이면 덜 꽂힌 것입니다</figcaption>
+</figure>
+<div class="card video">
+  <h3>손으로 꽂는 장면</h3>
+  <p>영어 영상입니다. 피코를 가운데 홈에 눌러 끼우는 장면만 보면 됩니다. 영상 뒤에 나오는 LED와 버튼 핀 번호는 우리 수업과 다릅니다. 불은 다음 차시 그림의 GP14를 따릅니다. 영상이 안 열리면 위 그림만 따라도 됩니다.</p>
+  <a class="btn" href="https://www.youtube.com/watch?v=Ex7AJll-FsM" target="_blank" rel="noopener">브레드보드에 꽂는 영상 보기</a>
+</div>
+</section><section class="page" data-name="Thonny" data-acc="#1f9d74"><div class="head"><div class="num">03</div><div><h2>Thonny</h2></div></div><div class="card"><ol class="vsteps">
     <li><b>Thonny를 엽니다.</b></li>
     <li><b>USB로 연결</b><p>충전 전용 케이블이면 보드를 못 찾습니다.</p></li>
     <li><b>인터프리터</b><p>오른쪽 아래에서 MicroPython (Raspberry Pi Pico)를 고릅니다. Pico W나 Pico 2가 아닙니다.</p></li>

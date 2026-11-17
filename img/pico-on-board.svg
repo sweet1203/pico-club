@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430">
+  <rect width="760" height="430" rx="18" fill="#f7f1e6"/>
+  <text x="24" y="36" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="22" font-weight="700" fill="#16202c">피코는 홈에 걸치듯 꽂아요</text>
+  <rect x="80" y="78" width="240" height="300" rx="14" fill="#efe6d6"/>
+  <rect x="440" y="78" width="240" height="300" rx="14" fill="#efe6d6"/>
+  <g fill="#c9bfae"><circle cx="120" cy="110" r="7"/><circle cx="160" cy="110" r="7"/><circle cx="200" cy="110" r="7"/><circle cx="240" cy="110" r="7"/><circle cx="280" cy="110" r="7"/><circle cx="120" cy="150" r="7"/><circle cx="160" cy="150" r="7"/><circle cx="200" cy="150" r="7"/><circle cx="240" cy="150" r="7"/><circle cx="280" cy="150" r="7"/><circle cx="120" cy="190" r="7"/><circle cx="160" cy="190" r="7"/><circle cx="200" cy="190" r="7"/><circle cx="240" cy="190" r="7"/><circle cx="280" cy="190" r="7"/><circle cx="120" cy="310" r="7"/><circle cx="160" cy="310" r="7"/><circle cx="200" cy="310" r="7"/><circle cx="240" cy="310" r="7"/><circle cx="280" cy="310" r="7"/><circle cx="120" cy="350" r="7"/><circle cx="160" cy="350" r="7"/><circle cx="200" cy="350" r="7"/><circle cx="240" cy="350" r="7"/><circle cx="280" cy="350" r="7"/><circle cx="480" cy="110" r="7"/><circle cx="520" cy="110" r="7"/><circle cx="560" cy="110" r="7"/><circle cx="600" cy="110" r="7"/><circle cx="640" cy="110" r="7"/><circle cx="480" cy="150" r="7"/><circle cx="520" cy="150" r="7"/><circle cx="560" cy="150" r="7"/><circle cx="600" cy="150" r="7"/><circle cx="640" cy="150" r="7"/><circle cx="480" cy="190" r="7"/><circle cx="520" cy="190" r="7"/><circle cx="560" cy="190" r="7"/><circle cx="600" cy="190" r="7"/><circle cx="640" cy="190" r="7"/><circle cx="480" cy="310" r="7"/><circle cx="520" cy="310" r="7"/><circle cx="560" cy="310" r="7"/><circle cx="600" cy="310" r="7"/><circle cx="640" cy="310" r="7"/><circle cx="480" cy="350" r="7"/><circle cx="520" cy="350" r="7"/><circle cx="560" cy="350" r="7"/><circle cx="600" cy="350" r="7"/><circle cx="640" cy="350" r="7"/></g>
+  <rect x="268" y="100" width="224" height="268" rx="12" fill="#143d32"/>
+  <g fill="#e6c36a">
+    <circle cx="280" cy="110" r="6"/><circle cx="280" cy="150" r="6"/><circle cx="280" cy="190" r="6"/><circle cx="280" cy="310" r="6"/><circle cx="280" cy="350" r="6"/>
+    <circle cx="480" cy="110" r="6"/><circle cx="480" cy="150" r="6"/><circle cx="480" cy="190" r="6"/><circle cx="480" cy="310" r="6"/><circle cx="480" cy="350" r="6"/>
+  </g>
+  <rect x="330" y="62" width="100" height="44" rx="8" fill="#c5cdd6"/>
+  <text x="380" y="90" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#16202c">USB</text>
+  <text x="380" y="246" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="20" fill="#ffffff">PICO H</text>
+  <g font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" font-weight="700" fill="#0f2742">
+    <text x="96" y="116">1</text>
+    <text x="96" y="356">20</text>
+    <text x="652" y="116">40</text>
+    <text x="652" y="356">21</text>
+  </g>
+  <text x="380" y="408" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#16202c">USB가 위, 핀은 홈 양쪽에 하나씩</text>
+</svg>
