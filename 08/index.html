@@ -18,6 +18,10 @@
 <div class="progress"><i id="prog"></i></div>
 <main>
 <section class="page" data-name="시작" data-acc="#1f9d74"><div class="cover"><span class="tag">8차시</span><h1>지나가면 켜지고, 지나가면 삑</h1><p>버튼을 빼고 인체 감지 센서를 넣습니다. 움직임이 있으면 LED가 켜지고, 부저는 그 순간 한 번만 울립니다.</p><ol><li>센서의 원리</li><li>연결</li><li>지나가면 불</li><li>한 번만 삑</li></ol></div></section><section class="page" data-name="원리" data-acc="#1f9d74"><div class="head"><div class="num">01</div><div><h2>원리</h2></div></div><div class="easy"><b class="t">원리</b><span>이 센서는 사람 몸에서 나오는 적외선이 <b>변할 때</b> 1을 보냅니다. 가만히 있으면 잠시 뒤 0으로 돌아옵니다. 값은 버튼처럼 0 또는 1이고, 핀만 다릅니다. 기판의 다이얼 하나는 감도, 하나는 켜져 있는 시간입니다.</span></div></section><section class="page" data-name="연결" data-acc="#1f9d74"><div class="head"><div class="num">02</div><div><h2>연결</h2></div></div><p>USB를 뽑습니다. <b>버튼과 버튼의 3V3 선을 먼저 뺍니다.</b> LED와 부저는 남겨 둡니다. 기판 글자 VCC, OUT, GND를 읽습니다.</p>
+<figure class="fig">
+  <img src="../img/pir-gp28.svg" alt="PIR">
+  <figcaption>VCC만 핀 40(5V). OUT은 GP28(핀 34), GND는 핀 38. 버튼과 3V3 선은 먼저 뺍니다. 암수 점퍼를 씁니다.</figcaption>
+</figure>
   <div class="card"><table>
   <tr><th>센서 글자</th><th>피코</th></tr>
   <tr><td>VCC</td><td>VBUS, 핀 40. 5V</td></tr>

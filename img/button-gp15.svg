@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420">
+  <rect width="820" height="420" rx="18" fill="#f7f1e6"/>
+  <text x="24" y="36" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="22" font-weight="700" fill="#16202c">버튼, 홈에 걸치기</text>
+  <rect x="150" y="90" width="110" height="250" rx="10" fill="#143d32"/>
+  <text x="205" y="220" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" font-weight="700" fill="#ffffff">PICO</text>
+  <text x="24" y="150" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="15" font-weight="700" fill="#16202c">GP15</text>
+  <text x="24" y="174" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="13" font-weight="400" fill="#5b6776">pin 20</text>
+  <rect x="280" y="128" width="200" height="32" rx="8" fill="#fde4c8"/>
+  <circle cx="320" cy="144" r="8" fill="#0f2742"/>
+  <rect x="300" y="118" width="150" height="150" rx="16" fill="#9b4fc4"/>
+  <circle cx="330" cy="144" r="7" fill="#fff"/>
+  <circle cx="420" cy="242" r="7" fill="#fff"/>
+  <path d="M420 242 H560 V70 H640" fill="none" stroke="#2f6fd0" stroke-width="4"/>
+  <text x="650" y="74" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#2f6fd0">3V3  pin 36</text>
+  <text x="24" y="250" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="15" font-weight="700" fill="#16202c">대각선</text>
+  <text x="360" y="200" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#ffffff">BTN</text>
+  <text x="24" y="360" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#8d2f2f">핀 40은 아닙니다</text>
+</svg>

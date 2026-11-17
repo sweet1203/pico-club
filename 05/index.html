@@ -18,6 +18,10 @@
 <div class="progress"><i id="prog"></i></div>
 <main>
 <section class="page" data-name="시작" data-acc="#9b4fc4"><div class="cover"><span class="tag">5차시</span><h1>누르면 켜지는 불</h1><p>LED 회로는 그대로 두고 버튼을 더합니다. 누르고 있는 동안에만 불이 켜집니다.</p><ol><li>입력의 원리</li><li>버튼 연결</li><li>누르는 동안 켜기</li><li>누를 때마다 바뀌기</li></ol></div></section><section class="page" data-name="원리" data-acc="#9b4fc4"><div class="head"><div class="num">01</div><div><h2>원리</h2></div></div><div class="easy"><b class="t">원리</b><span>입력 핀은 바깥 전압을 읽습니다. <code>Pin.PULL_DOWN</code>은 누르지 않았을 때 값을 0으로 붙잡아 둡니다. 버튼을 누르면 GP15와 3.3V가 이어져 값이 1이 됩니다. <code>if</code>는 1일 때만 LED를 켭니다.</span></div></section><section class="page" data-name="연결" data-acc="#9b4fc4"><div class="head"><div class="num">02</div><div><h2>연결</h2></div></div><p>USB를 뽑고 버튼을 더합니다. 다리는 네 개입니다. 가운데 홈에 걸치고, 대각선으로 마주 보는 두 다리를 씁니다.</p>
+<figure class="fig">
+  <img src="../img/button-gp15.svg" alt="button GP15">
+  <figcaption>버튼은 홈에 걸칩니다. 한쪽은 GP15(핀 20), 대각선 다른 쪽은 3V3(핀 36). 핀 40은 아닙니다.</figcaption>
+</figure>
   <div class="card"><table>
   <tr><th>부품</th><th>연결</th></tr>
   <tr><td>LED와 저항</td><td>그대로. GP14, GND 18</td></tr>

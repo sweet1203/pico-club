@@ -18,6 +18,11 @@
 <div class="progress"><i id="prog"></i></div>
 <main>
 <section class="page" data-name="시작" data-acc="#d64535"><div class="cover"><span class="tag">4차시</span><h1>심장 박동</h1><p>회로는 지난 시간 그대로입니다. 켜고 끄는 시간만 바꿔 두근, 두근, 쉼이 되게 합니다.</p><ol><li>시간으로 패턴 만들기</li><li>두근두근</li><li>숫자 바꿔 보기</li></ol></div></section><section class="page" data-name="원리" data-acc="#d64535"><div class="head"><div class="num">01</div><div><h2>원리</h2></div></div><div class="easy"><b class="t">원리</b><span>피코는 심장 소리를 알지 못합니다. 켜진 시간과 꺼진 시간을 우리가 정하면 보는 사람에게는 패턴이 됩니다. 짧은 불 두 번과 긴 쉼입니다. LED는 그대로 GP14, 저항 220Ω, GND입니다.</span></div>
+  <figure class="fig">
+  <img src="../img/led-gp14.svg" alt="GP14 LED">
+  <figcaption>선은 바꾸지 않아요. 시간만 바꿉니다</figcaption>
+</figure>
+
   <div class="callout">다른 교재의 심장은 가변 저항으로 빠르기를 바꿉니다. 그 부품은 키트에 없어서, 우리는 코드의 숫자만 바꿉니다.</div></section><section class="page" data-name="두근두근" data-acc="#d64535"><div class="head"><div class="num">02</div><div><h2>두근두근</h2></div></div><div class="card"><div class="codehead"><span>heartbeat.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
 import time
 
