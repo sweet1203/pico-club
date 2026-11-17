@@ -20,16 +20,18 @@
     <circle cx="370" cy="134" r="8"/><circle cx="470" cy="134" r="8"/>
     <circle cx="370" cy="194" r="8"/><circle cx="470" cy="194" r="8"/>
     <circle cx="370" cy="254" r="8"/>
-    <circle cx="470" cy="404" r="8"/><circle cx="560" cy="404" r="8"/>
+    <circle cx="440" cy="404" r="8"/><circle cx="580" cy="404" r="8"/>
   </g>
   <line x1="470" y1="194" x2="622" y2="194" stroke="#c47b16" stroke-width="4"/>
-  <rect x="614" y="186" width="16" height="218" rx="4" fill="#c47b16"/>
-  <line x1="630" y1="404" x2="560" y2="404" stroke="#c47b16" stroke-width="4"/>
+  <rect x="614" y="186" width="16" height="246" rx="4" fill="#c47b16"/>
+  <line x1="622" y1="432" x2="440" y2="432" stroke="#c47b16" stroke-width="4"/>
+  <line x1="440" y1="432" x2="440" y2="404" stroke="#c47b16" stroke-width="4"/>
   <text x="560" y="176" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" fill="#8a4b12">저항 220Ω</text>
-  <path d="M560 404 H740 V252" fill="none" stroke="#e0702b" stroke-width="4"/>
+  <path d="M580 404 H740 V252" fill="none" stroke="#e0702b" stroke-width="4"/>
   <path d="M740 208 V134 H470" fill="none" stroke="#5b6776" stroke-width="4"/>
   <circle cx="740" cy="230" r="22" fill="#f2a516" stroke="#e0702b" stroke-width="4"/>
   <text x="600" y="108" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" fill="#5b6776">짧은 다리</text>
-  <text x="688" y="372" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" fill="#e0702b">긴 다리</text>
-  <text x="340" y="466" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#16202c">LED 다리는 살짝 벌려서 꽂아요</text>
+  <text x="418" y="380" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" fill="#8a4b12">저항</text>
+  <text x="548" y="380" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" fill="#e0702b">긴 다리</text>
+  <text x="300" y="466" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#16202c">빈 줄 구멍 두 개. 저항 하나, 긴 다리 하나</text>
 </svg>
