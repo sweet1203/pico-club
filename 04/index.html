@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4차시 · 심장 박동</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="../">← 피코 동아리</a>
+  <nav class="steps" id="steps"></nav>
+  <div class="score" id="score"></div>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<main>
+<section class="page" data-name="시작" data-acc="#d64535"><div class="cover"><span class="tag">4차시</span><h1>심장 박동</h1><p>회로는 지난 시간 그대로입니다. 켜고 끄는 시간만 바꿔 두근, 두근, 쉼이 되게 합니다.</p><ol><li>시간으로 패턴 만들기</li><li>두근두근</li><li>숫자 바꿔 보기</li></ol></div></section><section class="page" data-name="원리" data-acc="#d64535"><div class="head"><div class="num">01</div><div><h2>원리</h2></div></div><div class="easy"><b class="t">원리</b><span>피코는 심장 소리를 알지 못합니다. 켜진 시간과 꺼진 시간을 우리가 정하면 보는 사람에게는 패턴이 됩니다. 짧은 불 두 번과 긴 쉼입니다. LED는 그대로 GP14, 저항 220Ω, GND입니다.</span></div>
+  <div class="callout">다른 교재의 심장은 가변 저항으로 빠르기를 바꿉니다. 그 부품은 키트에 없어서, 우리는 코드의 숫자만 바꿉니다.</div></section><section class="page" data-name="두근두근" data-acc="#d64535"><div class="head"><div class="num">02</div><div><h2>두근두근</h2></div></div><div class="card"><div class="codehead"><span>heartbeat.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+
+while True:
+    led.on()
+    time.sleep(0.12)
+    led.off()
+    time.sleep(0.12)
+    led.on()
+    time.sleep(0.12)
+    led.off()
+    time.sleep(0.6)
+</code></pre></div><ul class="clean"><li>위쪽 두 번의 <code>on</code>이 두근두근이고, 마지막 0.6이 쉼입니다.</li><li>0.6을 0.3으로 줄이면 빨라지고, 1.0으로 늘이면 느려집니다.</li><li>종이 하트를 LED 위에 얹어도 됩니다. 부품은 더 필요 없습니다.</li></ul>
+  <div class="quiz" data-quiz="2"></div></section>
+</main>
+<div class="foot">
+  <button class="btn ghost" id="prev" type="button">← 이전</button>
+  <span class="pg" id="pg"></span>
+  <button class="btn" id="next" type="button">다음 →</button>
+</div>
+<script>
+window.QK="pico-04";
+window.QUIZ={"2": [{"q": "박동을 더 느리게 하려면?", "o": ["핀 번호를 25로", "LED 다리를 반대로", "마지막 sleep 숫자를 더 크게"], "a": 2, "w": "쉼이 길수록 다음 두근까지 늦어집니다."}]};
+</script>
+<script src="../js/shell.js"></script>
+</body>
+</html>

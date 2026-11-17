@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8차시 · 지나가면 켜지고, 지나가면 삑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="../">← 피코 동아리</a>
+  <nav class="steps" id="steps"></nav>
+  <div class="score" id="score"></div>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<main>
+<section class="page" data-name="시작" data-acc="#1f9d74"><div class="cover"><span class="tag">8차시</span><h1>지나가면 켜지고, 지나가면 삑</h1><p>버튼을 빼고 인체 감지 센서를 넣습니다. 움직임이 있으면 LED가 켜지고, 부저는 그 순간 한 번만 울립니다.</p><ol><li>센서의 원리</li><li>연결</li><li>지나가면 불</li><li>한 번만 삑</li></ol></div></section><section class="page" data-name="원리" data-acc="#1f9d74"><div class="head"><div class="num">01</div><div><h2>원리</h2></div></div><div class="easy"><b class="t">원리</b><span>이 센서는 사람 몸에서 나오는 적외선이 <b>변할 때</b> 1을 보냅니다. 가만히 있으면 잠시 뒤 0으로 돌아옵니다. 값은 버튼처럼 0 또는 1이고, 핀만 다릅니다. 기판의 다이얼 하나는 감도, 하나는 켜져 있는 시간입니다.</span></div></section><section class="page" data-name="연결" data-acc="#1f9d74"><div class="head"><div class="num">02</div><div><h2>연결</h2></div></div><p>USB를 뽑습니다. <b>버튼과 버튼의 3V3 선을 먼저 뺍니다.</b> LED와 부저는 남겨 둡니다. 기판 글자 VCC, OUT, GND를 읽습니다.</p>
+  <div class="card"><table>
+  <tr><th>센서 글자</th><th>피코</th></tr>
+  <tr><td>VCC</td><td>VBUS, 핀 40. 5V</td></tr>
+  <tr><td>OUT</td><td>GP28, 핀 34</td></tr>
+  <tr><td>GND</td><td>아무 GND. 핀 38이 가깝습니다</td></tr>
+  </table></div>
+  <div class="callout stop"><b>5V는 센서 VCC에만.</b> 핀 40 선이 GP 핀이나 부저, LED에 닿으면 안 됩니다. 센서는 암-수 점퍼로 연결합니다.</div></section><section class="page" data-name="불" data-acc="#1f9d74"><div class="head"><div class="num">03</div><div><h2>불</h2></div></div><p>실행 뒤 1분 정도 센서가 안정될 수 있습니다. 종이컵으로 덮고 컵 안에 손만 넣었다 뺍니다.</p><div class="card"><div class="codehead"><span>pir_light.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+pir = Pin(28, Pin.IN, Pin.PULL_DOWN)
+
+while True:
+    if pir.value() == 1:
+        led.on()
+    else:
+        led.off()
+    time.sleep(0.1)
+</code></pre></div><p>손을 뺀 뒤에도 불이 잠시 켜져 있으면 감지 유지 시간입니다. 너무 길면 다이얼을 가장 짧게 돌립니다. 수업 전에 짧게 맞춰 두면 좋습니다.</p></section><section class="page" data-name="삑" data-acc="#1f9d74"><div class="head"><div class="num">04</div><div><h2>삑</h2></div></div><p>사람이 계속 있어도 부저가 계속 울리면 시끄럽습니다. 0에서 1로 바뀌는 순간만 0.1초 울립니다.</p><div class="card"><div class="codehead"><span>pir_beep.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+buzzer = Pin(13, Pin.OUT)
+pir = Pin(28, Pin.IN, Pin.PULL_DOWN)
+before = 0
+
+while True:
+    now = pir.value()
+    if now == 1 and before == 0:
+        buzzer.on()
+        time.sleep(0.1)
+        buzzer.off()
+    if now == 1:
+        led.on()
+    else:
+        led.off()
+    before = now
+    time.sleep(0.05)
+</code></pre></div><div class="card"><h3>막히면</h3><ul class="clean"><li>전원 직후 혼자 켜졌다 꺼짐 → 1분 정도 기다립니다.</li><li>한 번 켜지면 몇 분째 안 꺼짐 → 유지 시간 다이얼을 최소로 돌립니다.</li><li>아무도 없는데 켜짐 → 종이컵으로 덮습니다.</li></ul></div>
+  <div class="quiz" data-quiz="4"></div></section>
+</main>
+<div class="foot">
+  <button class="btn ghost" id="prev" type="button">← 이전</button>
+  <span class="pg" id="pg"></span>
+  <button class="btn" id="next" type="button">다음 →</button>
+</div>
+<script>
+window.QK="pico-08";
+window.QUIZ={"4": [{"q": "센서 OUT은 어디에 연결합니까?", "o": ["GP28", "GP14", "핀 37"], "a": 0, "w": "신호는 GP28입니다. VCC만 핀 40입니다."}, {"q": "앞에 사람이 가만히 있으면?", "o": ["계속 1을 보냅니다", "와이파이로 이름을 보냅니다", "움직임이 없으면 잠시 뒤 0으로 돌아옵니다"], "a": 2, "w": "적외선의 변화를 보므로 정지하면 꺼집니다. 피코 H에는 와이파이가 없습니다."}]};
+</script>
+<script src="../js/shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>선생님 메모 · 피코 동아리</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="../">← 피코 동아리</a>
+</div>
+<main>
+  <div class="head"><div><h2>선생님 메모</h2><p>라즈베리파이 피코 스타터 키트 · RASPBERRY PI PICO H 헤더핀 납땜 버전</p></div></div>
+  <div class="card">
+    <p>와이파이 없는 피코 H라서 핀과 펌웨어를 이 보드에 맞춰 두었습니다. 정보 코스웨어와 따로이고, 학생 화면은 그 코스웨어처럼 목록에서 차시를 연 뒤 이전·다음으로 넘깁니다.</p>
+  </div>
+  <div class="card">
+    <h3>우리 보드</h3>
+    <table>
+      <tr><th></th><th>피코 H (이 수업)</th><th>참고 자료에 자주 나오는 것</th></tr>
+      <tr><td>칩</td><td>RP2040</td><td>피코 2 계열은 RP2350</td></tr>
+      <tr><td>BOOTSEL 드라이브</td><td>RPI-RP2</td><td>피코 2는 RP2350</td></tr>
+      <tr><td>Thonny 펌웨어</td><td>Raspberry Pi Pico</td><td>Pico W, Pico 2, Pico 2 W가 따로 있음</td></tr>
+      <tr><td>와이파이</td><td>없음</td><td>2026-vibe-pico의 와이파이 장은 사용하지 않음</td></tr>
+      <tr><td>온보드 LED</td><td>Pin(25)</td><td>피코 W는 Pin("LED")</td></tr>
+      <tr><td>확장</td><td>브레드보드</td><td>pico-curriculum-36은 그로브 쉴드와 네오픽셀</td></tr>
+      <tr><td>코드</td><td>펌웨어 안의 machine</td><td>picozero, kmpico는 피코에 파일을 복사해야 함</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>핀 약속</h3>
+    <p>정보 수업은 버튼을 뺀 뒤 부저를 GP15에 꽂습니다. 여기서는 버튼과 부저를 같이 쓰므로 부저는 GP13입니다. LED GP14, 버튼 GP15, 센서 GP28은 정보 수업과 같습니다.</p>
+    <table>
+      <tr><th>부품</th><th>GP</th><th>가장자리 핀</th></tr>
+      <tr><td>온보드 LED</td><td>25</td><td>보드 위</td></tr>
+      <tr><td>바깥 LED +, 저항 220Ω</td><td>14</td><td>19</td></tr>
+      <tr><td>바깥 LED −</td><td>GND</td><td>18</td></tr>
+      <tr><td>버튼</td><td>15, 반대편은 3V3</td><td>20과 36</td></tr>
+      <tr><td>부저 +</td><td>13</td><td>17</td></tr>
+      <tr><td>센서 OUT</td><td>28</td><td>34</td></tr>
+      <tr><td>센서 VCC</td><td>VBUS 5V</td><td>40. GP 핀에 닿지 않게</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>수업 전에 한번</h3>
+    <ol class="vsteps">
+      <li>케이블이 데이터용인지, Thonny 인터프리터가 Raspberry Pi Pico인지 확인합니다.</li>
+      <li>저항이 220Ω인지 봅니다.</li>
+      <li>인체 감지 센서의 유지 시간 다이얼을 가장 짧게 돌려 둡니다.</li>
+      <li>센서 글자가 VCC · OUT · GND인지, 암-수 점퍼가 있는지 봅니다.</li>
+      <li>부저에 + 표시가 있는지 보고, 소리가 안 나면 선을 바꾸게 합니다.</li>
+    </ol>
+    <p>코드는 각 차시 화면과 <code>code</code> 폴더에 있습니다.</p>
+  </div>
+</main>
+</body>
+</html>

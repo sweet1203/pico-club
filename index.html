@@ -1,54 +1,115 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>피코 동아리 — 라즈베리파이 피코 스타터 키트</title>
-  <link rel="stylesheet" href="css/site.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>피코 동아리 · 수업 안내</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#16202c;--muted:#5b6776;--paper:#f3efe7;--card:#fff;--line:#e3ddd2;--navy:#0f2742;--amber:#f2a516}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;font-size:16px;line-height:1.6}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto}
+  header{background:var(--navy);color:#fff;padding:34px 16px 30px}
+  .brandrow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .kicker{color:var(--amber);font-weight:700;font-size:.9rem;letter-spacing:.04em;margin:0}
+  header h1{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:2.4rem;margin:6px 0 10px;line-height:1.15}
+  header .lead{margin:0;color:#c8d6e8;font-size:1rem;max-width:680px}
+  .tlink{color:#c8d6e8;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:7px 13px;text-decoration:none;font-size:.86rem;font-weight:700;white-space:nowrap}
+  .jump{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .jump a{background:var(--amber);color:var(--navy);border-radius:999px;padding:8px 16px;text-decoration:none;font-weight:700;font-size:.92rem}
+  .jump a.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+  main{padding:0 16px 70px}
+  .how{margin:-18px auto 0;position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .how .c{background:var(--card);border-radius:14px;box-shadow:0 6px 20px rgba(15,39,66,.08);padding:16px 16px 18px}
+  .how .c h3{margin:6px 0 4px;font-size:1.02rem}
+  .how .c p{margin:0;color:var(--muted);font-size:.9rem}
+  .note{margin:14px auto 0;background:#fff7e6;border:1px solid #f3dfae;border-radius:12px;padding:12px 16px;color:#7a5600;font-size:.9rem}
+  .sec-h{margin:40px 0 4px;font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:1.5rem}
+  .sec-sub{margin:0 0 6px;color:var(--muted);font-size:.9rem}
+  .unit{margin:26px 0 10px;display:flex;align-items:baseline;gap:10px}
+  .unit h2{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:1.3rem;margin:0;color:var(--k)}
+  .unit .cnt{color:var(--muted);font-size:.82rem}
+  .les{display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center;background:var(--card);border-radius:13px;box-shadow:0 4px 14px rgba(15,39,66,.06);padding:12px 14px;margin-bottom:8px;border-left:6px solid var(--k)}
+  .no{font-family:"Black Han Sans",sans-serif;font-size:1.3rem;color:var(--k);text-align:center}
+  .les h3{margin:0;font-size:1.02rem;font-weight:700}
+  .les small{color:var(--muted);font-size:.8rem}
+  .act{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+  .act a,.act button{font:inherit;font-size:.86rem;font-weight:700;border-radius:10px;padding:7px 14px;text-decoration:none;cursor:pointer;white-space:nowrap;border:1.5px solid var(--k)}
+  .act a.open{background:var(--k);color:#fff}
+  .act button.copy{background:#fff;color:var(--k)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 16px 50px;color:var(--muted);font-size:.85rem}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;opacity:0;transition:.2s;pointer-events:none;font-size:.9rem}
+  .toast.on{opacity:1}
+  @media (max-width:720px){
+    header h1{font-size:2rem}
+    .how{grid-template-columns:1fr}
+    .les{grid-template-columns:44px 1fr}
+    .act{grid-column:1/-1;justify-content:flex-start}
+  }
+</style>
 </head>
-<body data-page="home">
-  <header class="top">
-    <a class="brand" href="index.html">피코 동아리<small>라즈베리파이 피코 스타터 키트 · PICO H</small></a>
-    <nav>
-      <a href="선생님.html">선생님 메모</a>
-      <a class="primary" href="lessons/01.html">1차시 시작</a>
-    </nav>
-  </header>
-  <main class="wrap">
-    <span class="kicker">동아리 · 자유시간</span>
-    <h1>손바닥 보드로 불, 소리, 센서를 다루기</h1>
-    <p class="lead">컴퓨터를 처음 만지는 학생과 하는 수업입니다. 정보 수업 코스웨어와 따로 두었습니다. 키트 이름은 <b>라즈베리파이 피코 스타터 키트</b>이고, 안 보드는 <b>RASPBERRY PI PICO H</b>(헤더핀 납땜 버전)입니다. LED 하나, 버튼, 부저, 인체 감지 센서만 씁니다.</p>
-
-    <div class="callout why">
-      <b>우리 보드에 맞춰 둔 것</b>
-      참고한 자료 일부는 피코 2 WH, 그로브 쉴드, 색이 바뀌는 LED, 와이파이를 씁니다. 그 코드는 이 키트에서 그대로 돌지 않아서, 핀 번호와 부품을 피코 H 스타터 키트 기준으로 다시 썼습니다. 온보드 초록 LED는 <b>GP25</b>입니다.
+<body>
+<header><div class="wrap">
+  <div class="brandrow">
+    <div>
+      <p class="kicker">동아리 · 자유시간</p>
+      <h1>피코 동아리</h1>
     </div>
-
-    <h2>차시</h2>
-    <div class="lessons">
-      <a class="lesson" data-lesson="01" href="lessons/01.html"><div class="num">1</div><div><b>피코는 어떤 보드일까</b><span>라즈베리파이와 피코, 피코 H가 우리 것인 이유</span></div><div class="seen"></div></a>
-      <a class="lesson" data-lesson="02" href="lessons/02.html"><div class="num">2</div><div><b>보드를 켜고 말을 걸기</b><span>핀 이름, Thonny, 보드 위 초록 LED</span></div><div class="seen"></div></a>
-      <a class="lesson" data-lesson="03" href="lessons/03.html"><div class="num">3</div><div><b>반딧불이</b><span>출력, 저항, LED가 한쪽으로만 켜지는 이유</span></div><div class="seen"></div></a>
-      <a class="lesson" data-lesson="04" href="lessons/04.html"><div class="num">4</div><div><b>심장 박동</b><span>기다리는 시간을 바꾸면 패턴이 된다</span></div><div class="seen"></div></a>
-      <a class="lesson" data-lesson="05" href="lessons/05.html"><div class="num">5</div><div><b>누르면 켜지는 불</b><span>입력, 풀다운, if</span></div><div class="seen"></div></a>
-      <a class="lesson" data-lesson="06" href="lessons/06.html"><div class="num">6</div><div><b>반응 속도 대결</b><span>불이 켜진 뒤 버튼을 누른 시간을 재기</span></div><div class="seen"></div></a>
-      <a class="lesson" data-lesson="07" href="lessons/07.html"><div class="num">7</div><div><b>버튼 벨</b><span>부저를 켜고 끄는 출력</span></div><div class="seen"></div></a>
-      <a class="lesson" data-lesson="08" href="lessons/08.html"><div class="num">8</div><div><b>지나가면 켜지고, 지나가면 삑</b><span>인체 감지 센서와 한 번만 울리기</span></div><div class="seen"></div></a>
-    </div>
-
-    <h2>키트에 있는 것</h2>
-    <div class="card">
-      <table>
-        <tr><th>부품</th><th>이 수업에서 꽂는 곳</th></tr>
-        <tr><td>라즈베리파이 피코 스타터 키트(PICO H), USB 케이블, 브레드보드, 점퍼선</td><td>매번</td></tr>
-        <tr><td>LED 1개, 저항 220Ω 1개</td><td>GP14 (보드 핀 19) · 짧은 다리는 GND 핀 18</td></tr>
-        <tr><td>버튼 1개</td><td>GP15 (핀 20) ↔ 3V3 (핀 36)</td></tr>
-        <tr><td>부저</td><td>GP13 (핀 17) ↔ GND. 버튼과 자리를 나누기 위해 15번이 아닙니다.</td></tr>
-        <tr><td>인체 감지 센서(PIR), 암-수 점퍼 3개</td><td>VCC는 VBUS(핀 40), OUT은 GP28(핀 34), GND는 GND</td></tr>
-      </table>
-    </div>
-    <p class="note" style="color:var(--muted);font-size:14px">한 차시는 자유시간 40~50분입니다. 코드를 고치기 전에 실행 중인 프로그램은 정지 버튼으로 멈춥니다. 선을 바꿔 꽂을 때는 USB를 뽑습니다.</p>
-  </main>
-  <script src="js/site.js"></script>
+    <a class="tlink" href="teacher/">선생님 메모</a>
+  </div>
+  <p class="lead">키트 이름은 라즈베리파이 피코 스타터 키트이고, 안 보드는 RASPBERRY PI PICO H(헤더핀 납땜 버전)입니다. 차시 카드를 누르면 화면을 넘기며 실습합니다.</p>
+  <div class="jump">
+    <a href="#lessons">차시 바로가기</a>
+    <a class="ghost" href="#how">이용 방법</a>
+  </div>
+</div></header>
+<main><div class="wrap">
+  <section id="how" class="how">
+    <div class="c"><h3>1. 차시 선택</h3><p>배울 차시 카드의 <b>열기</b>를 눌러 수업 화면으로 들어갑니다.</p></div>
+    <div class="c"><h3>2. 화면 넘기기</h3><p>위쪽 단계 이름이나 아래 <b>이전 · 다음</b>으로 화면을 옮깁니다. 키보드 좌우 화살표도 됩니다.</p></div>
+    <div class="c"><h3>3. 주소 저장</h3><p><b>주소복사</b>로 그 차시 주소를 복사해 둡니다. 퀴즈와 보던 화면은 이 브라우저에 남습니다.</p></div>
+  </section>
+  <div class="note"><b>부품은 키트 안만 씁니다.</b> LED 하나, 저항 220Ω, 버튼, 부저, 인체 감지 센서. 선을 바꿔 꽂을 때는 USB를 뽑습니다.</div>
+  <h2 class="sec-h" id="lessons">차시 안내</h2>
+  <p class="sec-sub">8차시가 모두 공개되어 있습니다. 1차시는 설명, 2차시부터 키트를 연결합니다.</p>
+  <div id="list"></div>
+</div></main>
+<footer><div class="wrap">라즈베리파이 피코 스타터 키트 · PICO H 헤더핀 납땜 버전 · 동아리와 자유시간용입니다.</div></footer>
+<div class="toast" id="toast"></div>
+<script>
+const COLOR='#0e6e68';
+const LESSONS=[
+  {no:'01',id:'01',title:'피코는 어떤 보드일까',sub:'제품 이름, 피코 H, 입력과 출력'},
+  {no:'02',id:'02',title:'보드를 켜고 말을 걸기',sub:'핀 번호, Thonny, 초록 LED'},
+  {no:'03',id:'03',title:'반딧불이',sub:'저항, LED 방향, 깜박이는 패턴'},
+  {no:'04',id:'04',title:'심장 박동',sub:'기다리는 시간으로 패턴 만들기'},
+  {no:'05',id:'05',title:'누르면 켜지는 불',sub:'버튼, 풀다운, if'},
+  {no:'06',id:'06',title:'반응 속도 대결',sub:'불이 켜진 뒤 누른 시간'},
+  {no:'07',id:'07',title:'버튼 벨',sub:'부저는 GP13'},
+  {no:'08',id:'08',title:'지나가면 켜지고, 지나가면 삑',sub:'인체 감지 센서'}
+];
+function lessonUrl(id){
+  if(location.protocol==='file:') return id+'/';
+  return location.href.replace(/[^/]*$/,'')+id+'/';
+}
+document.getElementById('list').innerHTML=
+  `<div class="unit" style="--k:${COLOR}"><h2>라즈베리파이 피코 스타터 키트</h2><span class="cnt">8 / 8 공개</span></div>`+
+  LESSONS.map(l=>`<div class="les" style="--k:${COLOR}">
+    <div class="no">${l.no}</div>
+    <div><h3>${l.title}</h3><small>${l.sub}</small></div>
+    <div class="act"><a class="open" href="${l.id}/">열기</a><button class="copy" type="button" data-u="${lessonUrl(l.id)}">주소복사</button></div>
+  </div>`).join('');
+document.addEventListener('click',async e=>{
+  const b=e.target.closest('button[data-u]'); if(!b) return;
+  const url=b.dataset.u;
+  try{await navigator.clipboard.writeText(url); toast('차시 주소를 복사했어요');}
+  catch(x){prompt('주소를 복사하세요',url);}
+});
+function toast(t){const el=document.getElementById('toast'); el.textContent=t; el.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(()=>el.classList.remove('on'),1500);}
+</script>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7차시 · 버튼 벨</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="../">← 피코 동아리</a>
+  <nav class="steps" id="steps"></nav>
+  <div class="score" id="score"></div>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<main>
+<section class="page" data-name="시작" data-acc="#e0702b"><div class="cover"><span class="tag">7차시</span><h1>버튼 벨</h1><p>버튼을 누르는 동안 부저가 울리게 합니다. 음계는 다루지 않고, 켜고 끄는 소리만 만듭니다.</p><ol><li>소리의 원리</li><li>GP13</li><li>누르는 동안 삑</li><li>세 번만 울리기</li></ol></div></section><section class="page" data-name="원리" data-acc="#e0702b"><div class="head"><div class="num">01</div><div><h2>원리</h2></div></div><div class="easy"><b class="t">원리</b><span>부저도 출력입니다. 핀을 켜면 소리가 나고 끄면 그칩니다. 키트 부저는 이 방식인 경우가 많습니다. 도레미처럼 음 높이를 바꾸려면 다른 종류의 부저가 필요해서, 오늘은 삑만 합니다.</span></div>
+  <div class="callout">정보 수업에서는 버튼을 뺀 자리에 부저를 꽂기도 합니다. 여기서는 버튼이 GP15를 계속 쓰므로 부저는 <b>GP13, 보드 핀 17</b>입니다.</div></section><section class="page" data-name="연결" data-acc="#e0702b"><div class="head"><div class="num">02</div><div><h2>연결</h2></div></div><p>USB를 뽑고 부저만 더합니다. LED와 버튼은 그대로 둡니다.</p>
+  <div class="card"><table>
+  <tr><th>부저</th><th>연결</th></tr>
+  <tr><td>+, 긴 다리, 빨간 선</td><td>GP13, 핀 17</td></tr>
+  <tr><td>−, 짧은 다리, 검은 선</td><td>가까운 GND. 핀 13 또는 핀 23</td></tr>
+  </table></div></section><section class="page" data-name="삑" data-acc="#e0702b"><div class="head"><div class="num">03</div><div><h2>삑</h2></div></div><div class="card"><div class="codehead"><span>button_bell.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+button = Pin(15, Pin.IN, Pin.PULL_DOWN)
+buzzer = Pin(13, Pin.OUT)
+
+while True:
+    if button.value() == 1:
+        buzzer.on()
+        led.on()
+    else:
+        buzzer.off()
+        led.off()
+    time.sleep(0.05)
+</code></pre></div><ul class="clean"><li>소리가 전혀 없으면 +와 −를 바꿔 꽂아 봅니다.</li><li>딸깍만 나면 음 높이가 안 바뀌는 부저가 아닐 수 있습니다. 오늘 목표인 눌렀다는 신호로는 쓸 수 있습니다.</li></ul>
+  <div class="quiz" data-quiz="2"></div></section><section class="page" data-name="초인종" data-acc="#e0702b"><div class="head"><div class="num">04</div><div><h2>초인종</h2></div></div><p>누르는 순간 짧게 세 번만 울리고, 손을 뗄 때까지 더 울리지 않습니다.</p><div class="card"><div class="codehead"><span>doorbell.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+
+button = Pin(15, Pin.IN, Pin.PULL_DOWN)
+buzzer = Pin(13, Pin.OUT)
+before = 0
+
+while True:
+    now = button.value()
+    if now == 1 and before == 0:
+        for _ in range(3):
+            buzzer.on()
+            time.sleep(0.08)
+            buzzer.off()
+            time.sleep(0.12)
+        while button.value() == 1:
+            time.sleep(0.01)
+    before = button.value()
+    time.sleep(0.05)
+</code></pre></div></section>
+</main>
+<div class="foot">
+  <button class="btn ghost" id="prev" type="button">← 이전</button>
+  <span class="pg" id="pg"></span>
+  <button class="btn" id="next" type="button">다음 →</button>
+</div>
+<script>
+window.QK="pico-07";
+window.QUIZ={"2": [{"q": "이 동아리에서 부저 +를 꽂는 핀은?", "o": ["GP15, 버튼과 같은 자리", "GP13, 버튼과 다른 자리", "VBUS 5V"], "a": 1, "w": "버튼이 GP15를 쓰므로 부저는 GP13입니다."}]};
+</script>
+<script src="../js/shell.js"></script>
+</body>
+</html>

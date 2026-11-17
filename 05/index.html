@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5차시 · 누르면 켜지는 불</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="../">← 피코 동아리</a>
+  <nav class="steps" id="steps"></nav>
+  <div class="score" id="score"></div>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<main>
+<section class="page" data-name="시작" data-acc="#9b4fc4"><div class="cover"><span class="tag">5차시</span><h1>누르면 켜지는 불</h1><p>LED 회로는 그대로 두고 버튼을 더합니다. 누르고 있는 동안에만 불이 켜집니다.</p><ol><li>입력의 원리</li><li>버튼 연결</li><li>누르는 동안 켜기</li><li>누를 때마다 바뀌기</li></ol></div></section><section class="page" data-name="원리" data-acc="#9b4fc4"><div class="head"><div class="num">01</div><div><h2>원리</h2></div></div><div class="easy"><b class="t">원리</b><span>입력 핀은 바깥 전압을 읽습니다. <code>Pin.PULL_DOWN</code>은 누르지 않았을 때 값을 0으로 붙잡아 둡니다. 버튼을 누르면 GP15와 3.3V가 이어져 값이 1이 됩니다. <code>if</code>는 1일 때만 LED를 켭니다.</span></div></section><section class="page" data-name="연결" data-acc="#9b4fc4"><div class="head"><div class="num">02</div><div><h2>연결</h2></div></div><p>USB를 뽑고 버튼을 더합니다. 다리는 네 개입니다. 가운데 홈에 걸치고, 대각선으로 마주 보는 두 다리를 씁니다.</p>
+  <div class="card"><table>
+  <tr><th>부품</th><th>연결</th></tr>
+  <tr><td>LED와 저항</td><td>그대로. GP14, GND 18</td></tr>
+  <tr><td>버튼 다리 하나</td><td>GP15, 보드 핀 20</td></tr>
+  <tr><td>대각선 반대 다리</td><td>3V3, 보드 핀 36만</td></tr>
+  </table></div>
+  <div class="callout stop"><b>3V3만.</b> 핀 39·40(5V)과 핀 37에는 꽂지 않습니다.</div></section><section class="page" data-name="누르는 동안" data-acc="#9b4fc4"><div class="head"><div class="num">03</div><div><h2>누르는 동안</h2></div></div><div class="card"><div class="codehead"><span>button_led.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+button = Pin(15, Pin.IN, Pin.PULL_DOWN)
+
+while True:
+    if button.value() == 1:
+        led.on()
+    else:
+        led.off()
+    time.sleep(0.05)
+</code></pre></div><ul class="clean"><li>버튼 핀을 <code>OUT</code>으로 두면 3.3V와 출력이 부딪힐 수 있습니다.</li><li>안 눌러도 불이 계속 켜지면 선이 항상 붙어 있는 것입니다. USB를 뽑고 줄을 다시 봅니다.</li></ul>
+  <div class="quiz" data-quiz="3"></div></section><section class="page" data-name="바뀔 때마다" data-acc="#9b4fc4"><div class="head"><div class="num">04</div><div><h2>바뀔 때마다</h2></div></div><p>누르는 순간만 잡아 켜짐과 꺼짐을 바꿉니다. 손을 떼기 전에는 한 번만 바뀝니다.</p><div class="card"><div class="codehead"><span>button_toggle.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+button = Pin(15, Pin.IN, Pin.PULL_DOWN)
+led.off()
+before = 0
+
+while True:
+    now = button.value()
+    if now == 1 and before == 0:
+        if led.value() == 1:
+            led.off()
+        else:
+            led.on()
+    before = now
+    time.sleep(0.05)
+</code></pre></div></section>
+</main>
+<div class="foot">
+  <button class="btn ghost" id="prev" type="button">← 이전</button>
+  <span class="pg" id="pg"></span>
+  <button class="btn" id="next" type="button">다음 →</button>
+</div>
+<script>
+window.QK="pico-05";
+window.QUIZ={"3": [{"q": "버튼을 누르지 않았을 때 값을 0으로 두는 설정은?", "o": ["Pin.PULL_DOWN", "Pin.OUT", "VBUS에 연결"], "a": 0, "w": "풀다운이 없으면 안 누른 값이 흔들릴 수 있습니다. 5V에 연결하면 위험합니다."}]};
+</script>
+<script src="../js/shell.js"></script>
+</body>
+</html>

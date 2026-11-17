@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1차시 · 피코는 어떤 보드일까</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="../">← 피코 동아리</a>
+  <nav class="steps" id="steps"></nav>
+  <div class="score" id="score"></div>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<main>
+<section class="page" data-name="시작" data-acc="#2f6fd0"><div class="cover"><span class="tag">1차시 · 라즈베리파이 피코 스타터 키트</span><h1>피코는 어떤 보드일까</h1><p>오늘은 코드를 쓰지 않습니다. 이름을 구분하고, USB 구멍과 초록 불, BOOTSEL을 찾습니다.</p><ol><li>이름이 여럿인 이유</li><li>입력과 출력</li><li>보드에서 찾기</li><li>키트 확인</li></ol></div></section><section class="page" data-name="이름" data-acc="#2f6fd0"><div class="head"><div class="num">01</div><div><h2>이름</h2></div></div><div class="easy"><b class="t">한 줄</b><span>라즈베리파이는 화면이 있는 작은 컴퓨터이고, 피코는 불·버튼·센서를 반복해서 다루는 보드입니다. 우리가 산 제품은 <b>라즈베리파이 피코 스타터 키트</b>, 기판 표기는 <b>RASPBERRY PI PICO H</b>(헤더핀 납땜 버전)입니다.</span></div>
+  <div class="card"><table>
+  <tr><th>이름</th><th>무엇인가</th><th>우리 키트</th></tr>
+  <tr><td>라즈베리파이 4, 5</td><td>모니터와 키보드를 꽂는 컴퓨터입니다.</td><td>아님</td></tr>
+  <tr><td>피코 H</td><td>핀이 이미 납땜되어 있습니다. 와이파이는 없습니다. 초록 LED는 GP25입니다.</td><td>우리 것</td></tr>
+  <tr><td>피코 W, WH</td><td>와이파이가 있습니다. 초록 LED를 켜는 코드가 다릅니다.</td><td>아님</td></tr>
+  <tr><td>피코 2, 2 W</td><td>더 새 칩입니다. 참고 자료 여럿이 이 보드를 기준으로 적혀 있습니다.</td><td>아님</td></tr>
+  </table></div>
+  <p>제목에 Pico W, Pico 2, Grove, NeoPixel, Wi-Fi가 있는 예제는 우리 수업 코드가 아닙니다.</p></section><section class="page" data-name="입출력" data-acc="#2f6fd0"><div class="head"><div class="num">02</div><div><h2>입출력</h2></div></div><div class="cards2">
+    <div class="card"><h3>입력</h3><p>바깥 신호를 읽습니다. 버튼이 눌렸는지, 사람이 지나갔는지를 0 또는 1로 받습니다.</p></div>
+    <div class="card"><h3>출력</h3><p>핀으로 전기를 내보냅니다. LED를 켜고 부저를 울립니다. 켜짐이 1, 꺼짐이 0입니다.</p></div>
+  </div>
+  <p>가운데서 판단하는 말이 마이크로파이썬입니다. 다음 차시에 컴퓨터의 Thonny에서 그 프로그램을 피코로 보냅니다.</p></section><section class="page" data-name="찾기" data-acc="#2f6fd0"><div class="head"><div class="num">03</div><div><h2>찾기</h2></div></div><div class="card"><ol class="vsteps">
+    <li><b>USB 구멍이 위</b><p>피코 H는 마이크로 USB입니다. 데이터 케이블로 연결합니다.</p></li>
+    <li><b>BOOTSEL</b><p>USB 반대편 작은 버튼입니다. 마이크로파이썬을 처음 넣을 때만 누릅니다.</p></li>
+    <li><b>온보드 LED</b><p>보드 위의 아주 작은 초록 불입니다. 부품 없이 켤 수 있고, 핀 번호는 GP25입니다.</p></li>
+    <li><b>헤더핀</b><p>양옆 금속 다리가 이미 납땜되어 있어서 브레드보드에 꽂힙니다.</p></li>
+  </ol></div>
+  <div class="card"><h3>키트 안</h3><ul class="clean"><li>피코 H, USB 케이블, 브레드보드, 점퍼선</li><li>LED 1개, 저항 220Ω 1개, 버튼 1개, 부저 1개</li><li>인체 감지 센서 1개, 암-수 점퍼선 3개</li></ul></div>
+  <div class="callout stop"><b>없는 것.</b> 색이 바뀌는 네오픽셀, 그로브 쉴드, 와이파이, 가변 저항은 이 키트에 없습니다.</div>
+  <div class="quiz" data-quiz="3"></div></section>
+</main>
+<div class="foot">
+  <button class="btn ghost" id="prev" type="button">← 이전</button>
+  <span class="pg" id="pg"></span>
+  <button class="btn" id="next" type="button">다음 →</button>
+</div>
+<script>
+window.QK="pico-01";
+window.QUIZ={"3": [{"q": "우리 키트의 보드는 어느 것입니까?", "o": ["와이파이가 있는 피코 W", "헤더핀이 납땜된 피코 H", "모니터를 꽂는 라즈베리파이 5"], "a": 1, "w": "상자 이름은 라즈베리파이 피코 스타터 키트이고, 보드는 RASPBERRY PI PICO H입니다."}, {"q": "BOOTSEL 버튼은 언제 씁니까?", "o": ["마이크로파이썬을 처음 설치할 때", "LED를 켤 때마다", "버튼을 누르는 실습마다"], "a": 0, "w": "이미 설치되어 있으면 USB만 꽂습니다."}]};
+</script>
+<script src="../js/shell.js"></script>
+</body>
+</html>

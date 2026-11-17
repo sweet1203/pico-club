@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2차시 · 보드를 켜고 말을 걸기</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="../">← 피코 동아리</a>
+  <nav class="steps" id="steps"></nav>
+  <div class="score" id="score"></div>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<main>
+<section class="page" data-name="시작" data-acc="#1f9d74"><div class="cover"><span class="tag">2차시</span><h1>보드를 켜고 말을 걸기</h1><p>선을 꽂기 전에 핀 번호 두 종류를 구분하고, Thonny로 초록 LED를 켭니다.</p><ol><li>핀 번호</li><li>꽂으면 안 되는 곳</li><li>Thonny 연결</li><li>초록 LED 다섯 번</li></ol></div></section><section class="page" data-name="핀 번호" data-acc="#1f9d74"><div class="head"><div class="num">01</div><div><h2>핀 번호</h2></div></div><div class="easy"><b class="t">한 줄</b><span>코드에 쓰는 이름은 <b>GP 번호</b>이고, 보드 가장자리를 세는 것은 <b>핀 번호</b>입니다. GP14는 가장자리 19번입니다. USB를 위로 두면 왼쪽 위가 1번, 오른쪽 위가 40번입니다.</span></div>
+  <div class="card"><table>
+  <tr><th>부품</th><th>GP</th><th>가장자리</th></tr>
+  <tr><td>바깥 LED</td><td>14</td><td>19, 짧은 다리는 GND 18</td></tr>
+  <tr><td>버튼</td><td>15</td><td>20, 반대편은 3V3인 36</td></tr>
+  <tr><td>부저</td><td>13</td><td>17</td></tr>
+  <tr><td>센서 신호</td><td>28</td><td>34. 전원은 VBUS 40</td></tr>
+  <tr><td>초록 LED</td><td>25</td><td>보드 위. 핀에 안 나옴</td></tr>
+  </table></div></section><section class="page" data-name="안전" data-acc="#1f9d74"><div class="head"><div class="num">02</div><div><h2>안전</h2></div></div><div class="callout stop"><b>꽂으면 안 되는 곳.</b> 핀 40 VBUS와 핀 39는 5V입니다. 버튼이나 GP 핀에 닿으면 보드가 상합니다. 핀 37은 전원 끄기용이라 비웁니다. 3V3과 GND를 선 하나로 바로 잇지 않습니다. 선을 바꿀 때는 USB를 뽑습니다.</div>
+  <div class="card"><h3>브레드보드</h3><p>가운데 홈을 기준으로 위아래가 끊겨 있습니다. 세로 구멍 다섯 개가 한 줄입니다. 피코는 그 홈에 걸치듯 꽂습니다. 오늘은 피코만 USB로 연결합니다.</p></div></section><section class="page" data-name="Thonny" data-acc="#1f9d74"><div class="head"><div class="num">03</div><div><h2>Thonny</h2></div></div><div class="card"><ol class="vsteps">
+    <li><b>Thonny를 엽니다.</b></li>
+    <li><b>USB로 연결</b><p>충전 전용 케이블이면 보드를 못 찾습니다.</p></li>
+    <li><b>인터프리터</b><p>오른쪽 아래에서 MicroPython (Raspberry Pi Pico)를 고릅니다. Pico W나 Pico 2가 아닙니다.</p></li>
+    <li><b>셸 확인</b><p><code>&gt;&gt;&gt;</code> 옆에 <code>print('안녕')</code>을 치고 Enter. 안녕이 나오면 연결된 것입니다.</p></li>
+  </ol></div>
+  <div class="callout"><b>처음이라 드라이브만 보일 때.</b> BOOTSEL을 누른 채 꽂으면 <b>RPI-RP2</b>가 생깁니다. 피코 2는 RP2350이라는 이름이 뜹니다. Install MicroPython에서 보드를 Raspberry Pi Pico로 고릅니다.</div></section><section class="page" data-name="초록 LED" data-acc="#1f9d74"><div class="head"><div class="num">04</div><div><h2>초록 LED</h2></div></div><div class="card"><div class="codehead"><span>onboard_blink.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+
+led = Pin(25, Pin.OUT)
+
+for i in range(5):
+    led.on()
+    print(i + 1, "번째 켜짐")
+    time.sleep(0.4)
+    led.off()
+    time.sleep(0.4)
+
+print("끝")
+</code></pre></div><ul class="clean"><li><code>Pin(25, Pin.OUT)</code>은 25번을 출력으로 정합니다. 피코 W 예제의 <code>Pin("LED")</code>는 쓰지 않습니다.</li><li><code>on</code>은 켜기, <code>off</code>는 끄기, <code>sleep(0.4)</code>는 0.4초 기다리기입니다.</li><li>다음 차시부터는 <code>while True</code>라서, 고치기 전에 정지 버튼을 누릅니다.</li></ul>
+  <div class="quiz" data-quiz="4"></div></section>
+</main>
+<div class="foot">
+  <button class="btn ghost" id="prev" type="button">← 이전</button>
+  <span class="pg" id="pg"></span>
+  <button class="btn" id="next" type="button">다음 →</button>
+</div>
+<script>
+window.QK="pico-02";
+window.QUIZ={"4": [{"q": "피코 H에서 보드 위 초록 LED 핀은?", "o": ["GP14", "GP25", "GP28"], "a": 1, "w": "바깥 LED는 다음 차시의 GP14입니다."}, {"q": "펌웨어를 설치할 때 고르는 보드는?", "o": ["Raspberry Pi Pico 2 W", "Raspberry Pi Pico W", "Raspberry Pi Pico"], "a": 2, "w": "피코 H는 와이파이도 없고 피코 2도 아닙니다. 드라이브 이름은 RPI-RP2입니다."}]};
+</script>
+<script src="../js/shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3차시 · 반딧불이</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="../">← 피코 동아리</a>
+  <nav class="steps" id="steps"></nav>
+  <div class="score" id="score"></div>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<main>
+<section class="page" data-name="시작" data-acc="#e0702b"><div class="cover"><span class="tag">3차시</span><h1>반딧불이</h1><p>바깥 LED를 저항과 함께 연결하고, 짧게 몇 번 깜박인 뒤 쉬는 패턴을 만듭니다.</p><ol><li>불이 켜지는 이유</li><li>연결</li><li>1초마다 깜박이기</li><li>반딧불이 패턴</li></ol></div></section><section class="page" data-name="원리" data-acc="#e0702b"><div class="head"><div class="num">01</div><div><h2>원리</h2></div></div><div class="easy"><b class="t">원리</b><span>출력 핀이 켜지면 약 3.3V, 꺼지면 0V입니다. LED는 긴 다리에서 짧은 다리로 전기가 흐를 때만 빛이 납니다. 저항은 전류를 줄여 LED가 타지 않게 합니다.</span></div></section><section class="page" data-name="연결" data-acc="#e0702b"><div class="head"><div class="num">02</div><div><h2>연결</h2></div></div><p>USB를 뽑고 연결한 뒤 다시 꽂습니다. 이어야 하는 다리는 브레드보드의 같은 세로줄에 둡니다.</p>
+  <div class="card"><table>
+  <tr><th>부품</th><th>연결</th></tr>
+  <tr><td>저항 한쪽</td><td>GP14, 보드 핀 19와 같은 줄</td></tr>
+  <tr><td>저항 다른 쪽과 LED 긴 다리</td><td>서로 같은 세로줄</td></tr>
+  <tr><td>LED 짧은 다리</td><td>GND, 보드 핀 18</td></tr>
+  </table></div>
+  <div class="callout stop"><b>방향.</b> 긴 다리가 GND 쪽이면 불이 안 켜집니다. 저항 없이 LED를 전원에 바로 잇지 않습니다.</div></section><section class="page" data-name="1초 깜박" data-acc="#e0702b"><div class="head"><div class="num">03</div><div><h2>1초 깜박</h2></div></div><div class="card"><div class="codehead"><span>blink.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+
+while True:
+    led.on()
+    time.sleep(1)
+    led.off()
+    time.sleep(1)
+</code></pre></div><p>1을 0.2로 바꾸면 더 빨리 깜박입니다. 숫자를 바꾼 뒤에는 정지하고 다시 실행합니다.</p></section><section class="page" data-name="반딧불이" data-acc="#e0702b"><div class="head"><div class="num">04</div><div><h2>반딧불이</h2></div></div><p>짧게 세 번 켜고 1.2초 쉽니다. <code>for</code>가 세 번, 그 뒤 <code>sleep</code>이 쉼입니다.</p><div class="card"><div class="codehead"><span>firefly.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+
+while True:
+    for i in range(3):
+        led.on()
+        time.sleep(0.12)
+        led.off()
+        time.sleep(0.12)
+    time.sleep(1.2)
+</code></pre></div><ul class="clean"><li><code>range(3)</code>을 <code>range(5)</code>로 바꾸면 한 묶음에 다섯 번입니다.</li><li>코드는 도는데 바깥 LED만 꺼져 있으면 다리 방향, 같은 세로줄, 숫자 14를 봅니다.</li></ul>
+  <div class="quiz" data-quiz="4"></div></section>
+</main>
+<div class="foot">
+  <button class="btn ghost" id="prev" type="button">← 이전</button>
+  <span class="pg" id="pg"></span>
+  <button class="btn" id="next" type="button">다음 →</button>
+</div>
+<script>
+window.QK="pico-03";
+window.QUIZ={"4": [{"q": "LED 긴 다리는 어느 쪽입니까?", "o": ["저항을 거쳐 GP14 쪽", "GND 쪽", "5V인 VBUS 쪽"], "a": 0, "w": "긴 다리가 +입니다. 전기는 GP14, 저항, LED, GND 순으로 흐릅니다."}, {"q": "저항을 끼우는 이유는?", "o": ["색을 바꾸려고", "전류를 줄여 LED를 지키려고", "와이파이를 연결하려고"], "a": 1, "w": "우리 저항은 220Ω입니다."}]};
+</script>
+<script src="../js/shell.js"></script>
+</body>
+</html>

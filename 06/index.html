@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6차시 · 반응 속도 대결</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/course.css">
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="../">← 피코 동아리</a>
+  <nav class="steps" id="steps"></nav>
+  <div class="score" id="score"></div>
+</div>
+<div class="progress"><i id="prog"></i></div>
+<main>
+<section class="page" data-name="시작" data-acc="#2f6fd0"><div class="cover"><span class="tag">6차시</span><h1>반응 속도 대결</h1><p>회로는 버튼과 LED 그대로입니다. 불이 켜지면 누르고, 몇 밀리초인지 셸에서 겨룹니다.</p><ol><li>시간을 재는 원리</li><li>노는 법</li><li>코드</li><li>막히면</li></ol></div></section><section class="page" data-name="원리" data-acc="#2f6fd0"><div class="head"><div class="num">01</div><div><h2>원리</h2></div></div><div class="easy"><b class="t">원리</b><span><code>time.ticks_ms()</code>는 피코가 켜진 뒤 흐른 시간을 밀리초로 알려 줍니다. 불이 켜진 시각과 버튼을 누른 시각의 차이가 반응 시간입니다. 기다리는 시간을 <code>random.randint</code>로 1.5초에서 4초 사이에서 뽑습니다.</span></div>
+  <p>연결은 5차시와 같습니다. LED는 GP14, 버튼은 GP15와 3V3(핀 36)입니다.</p></section><section class="page" data-name="노는 법" data-acc="#2f6fd0"><div class="head"><div class="num">02</div><div><h2>노는 법</h2></div></div><div class="card"><ol class="vsteps">
+    <li><b>시작</b><p>버튼을 짧게 눌렀다 뗍니다.</p></li>
+    <li><b>기다리기</b><p>불은 꺼져 있습니다. 켜지기 전에 누르면 너무 일렀어요가 나오고 그 판은 무효입니다.</p></li>
+    <li><b>누르기</b><p>불이 켜지면 바로 누릅니다. 기록 240 ms처럼 나옵니다. 숫자가 작을수록 빠릅니다.</p></li>
+    <li><b>다섯 판</b><p>끝나면 최고 기록이 나옵니다. 정지한 뒤 옆 사람과 바꿉니다.</p></li>
+  </ol></div></section><section class="page" data-name="코드" data-acc="#2f6fd0"><div class="head"><div class="num">03</div><div><h2>코드</h2></div></div><div class="card"><div class="codehead"><span>reaction.py</span><button type="button" class="btn sm ghost copycode">코드 복사</button></div><pre><code>from machine import Pin
+import time
+import random
+
+led = Pin(14, Pin.OUT)
+button = Pin(15, Pin.IN, Pin.PULL_DOWN)
+
+def wait_release():
+    while button.value() == 1:
+        time.sleep(0.01)
+
+print("버튼을 짧게 누르면 시작. 불이 켜지면 다시 누르세요.")
+best = None
+
+for n in range(1, 6):
+    print(n, "번째")
+    while button.value() == 0:
+        time.sleep(0.01)
+    wait_release()
+
+    led.off()
+    wait_ms = random.randint(1500, 4000)
+    early = False
+    t0 = time.ticks_ms()
+    while time.ticks_diff(time.ticks_ms(), t0) &lt; wait_ms:
+        if button.value() == 1:
+            early = True
+            break
+        time.sleep(0.01)
+
+    if early:
+        print("너무 일렀어요")
+        for _ in range(3):
+            led.on()
+            time.sleep(0.08)
+            led.off()
+            time.sleep(0.08)
+        wait_release()
+        continue
+
+    led.on()
+    start = time.ticks_ms()
+    while button.value() == 0:
+        time.sleep(0.001)
+    ms = time.ticks_diff(time.ticks_ms(), start)
+    led.off()
+    wait_release()
+    print("기록", ms, "ms")
+    if best is None or ms &lt; best:
+        best = ms
+        print("오늘 최고")
+
+if best is None:
+    print("끝. 성공한 기록이 없어요")
+else:
+    print("끝. 최고 기록", best, "ms")
+led.off()
+</code></pre></div><div class="quiz" data-quiz="2"></div>
+  <div class="card"><h3>막히면</h3><ul class="clean"><li>시작하자마자 너무 일렀어요 → 버튼을 누른 채 손을 안 뗀 것입니다.</li><li>기록이 계속 10ms보다 작으면 불이 켜지기 전에 이미 눌린 상태입니다.</li><li>사람마다 보통 180~350ms입니다.</li></ul></div></section>
+</main>
+<div class="foot">
+  <button class="btn ghost" id="prev" type="button">← 이전</button>
+  <span class="pg" id="pg"></span>
+  <button class="btn" id="next" type="button">다음 →</button>
+</div>
+<script>
+window.QK="pico-06";
+window.QUIZ={"2": [{"q": "기다리는 시간을 매번 바꾸는 이유는?", "o": ["LED 색을 바꾸려고", "박자에 맞춰 미리 누르지 못하게 하려고", "점수를 와이파이로 보내려고"], "a": 1, "w": "항상 2초 뒤에 켜지면 숫자만 세도 이길 수 있습니다."}]};
+</script>
+<script src="../js/shell.js"></script>
+</body>
+</html>
