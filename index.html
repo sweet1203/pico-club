@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>피코 동아리 — 라즈베리파이 피코 H</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="home">
+  <header class="top">
+    <a class="brand" href="index.html">피코 동아리<small>라즈베리파이 피코 H · 스타터 키트</small></a>
+    <nav>
+      <a href="선생님.html">선생님 메모</a>
+      <a class="primary" href="lessons/01.html">1차시 시작</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <span class="kicker">동아리 · 자유시간</span>
+    <h1>손바닥 보드로 불, 소리, 센서를 다루기</h1>
+    <p class="lead">컴퓨터를 처음 만지는 학생과 하는 수업입니다. 정보 수업 코스웨어와 따로 두었습니다. 보드는 <b>라즈베리파이 피코 H</b>이고, 키트에 있는 LED 하나, 버튼, 부저, 인체 감지 센서만 씁니다.</p>
+
+    <div class="callout why">
+      <b>우리 보드에 맞춰 둔 것</b>
+      참고한 자료 일부는 피코 2 WH, 그로브 쉴드, 색이 바뀌는 LED, 와이파이를 씁니다. 그 코드는 이 키트에서 그대로 돌지 않아서, 핀 번호와 부품을 피코 H 스타터 키트 기준으로 다시 썼습니다. 온보드 초록 LED는 <b>GP25</b>입니다.
+    </div>
+
+    <h2>차시</h2>
+    <div class="lessons">
+      <a class="lesson" data-lesson="01" href="lessons/01.html"><div class="num">1</div><div><b>피코는 어떤 보드일까</b><span>라즈베리파이와 피코, 피코 H가 우리 것인 이유</span></div><div class="seen"></div></a>
+      <a class="lesson" data-lesson="02" href="lessons/02.html"><div class="num">2</div><div><b>보드를 켜고 말을 걸기</b><span>핀 이름, Thonny, 보드 위 초록 LED</span></div><div class="seen"></div></a>
+      <a class="lesson" data-lesson="03" href="lessons/03.html"><div class="num">3</div><div><b>반딧불이</b><span>출력, 저항, LED가 한쪽으로만 켜지는 이유</span></div><div class="seen"></div></a>
+      <a class="lesson" data-lesson="04" href="lessons/04.html"><div class="num">4</div><div><b>심장 박동</b><span>기다리는 시간을 바꾸면 패턴이 된다</span></div><div class="seen"></div></a>
+      <a class="lesson" data-lesson="05" href="lessons/05.html"><div class="num">5</div><div><b>누르면 켜지는 불</b><span>입력, 풀다운, if</span></div><div class="seen"></div></a>
+      <a class="lesson" data-lesson="06" href="lessons/06.html"><div class="num">6</div><div><b>반응 속도 대결</b><span>불이 켜진 뒤 버튼을 누른 시간을 재기</span></div><div class="seen"></div></a>
+      <a class="lesson" data-lesson="07" href="lessons/07.html"><div class="num">7</div><div><b>버튼 벨</b><span>부저를 켜고 끄는 출력</span></div><div class="seen"></div></a>
+      <a class="lesson" data-lesson="08" href="lessons/08.html"><div class="num">8</div><div><b>지나가면 켜지고, 지나가면 삑</b><span>인체 감지 센서와 한 번만 울리기</span></div><div class="seen"></div></a>
+    </div>
+
+    <h2>키트에 있는 것</h2>
+    <div class="card">
+      <table>
+        <tr><th>부품</th><th>이 수업에서 꽂는 곳</th></tr>
+        <tr><td>피코 H, USB 케이블, 브레드보드, 점퍼선</td><td>매번</td></tr>
+        <tr><td>LED 1개, 저항 220Ω 1개</td><td>GP14 (보드 핀 19) · 짧은 다리는 GND 핀 18</td></tr>
+        <tr><td>버튼 1개</td><td>GP15 (핀 20) ↔ 3V3 (핀 36)</td></tr>
+        <tr><td>부저</td><td>GP13 (핀 17) ↔ GND. 버튼과 자리를 나누기 위해 15번이 아닙니다.</td></tr>
+        <tr><td>인체 감지 센서(PIR), 암-수 점퍼 3개</td><td>VCC는 VBUS(핀 40), OUT은 GP28(핀 34), GND는 GND</td></tr>
+      </table>
+    </div>
+    <p class="note" style="color:var(--muted);font-size:14px">한 차시는 자유시간 40~50분입니다. 코드를 고치기 전에 실행 중인 프로그램은 정지 버튼으로 멈춥니다. 선을 바꿔 꽂을 때는 USB를 뽑습니다.</p>
+  </main>
+  <script src="js/site.js"></script>
+</body>
+</html>

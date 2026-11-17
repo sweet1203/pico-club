@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>선생님 메모 · 피코 동아리</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="index.html">피코 동아리<small>선생님 메모</small></a>
+    <nav><a class="primary" href="index.html">학생 목록</a></nav>
+  </header>
+  <main class="wrap">
+    <span class="kicker">수업 전</span>
+    <h1>피코 H에 맞춰 둔 이유</h1>
+    <p class="lead">이 폴더는 정보 코스웨어 <code>ds_info_class</code> 안이 아닙니다. 동아리와 자유시간용이고, 브라우저로 <code>index.html</code> 을 열면 됩니다. 인터넷이나 설치가 필요 없습니다.</p>
+
+    <h2>우리 보드</h2>
+    <div class="card">
+      <table>
+        <tr><th></th><th>피코 H (이 수업)</th><th>참고 자료에 자주 나오는 것</th></tr>
+        <tr><td>칩</td><td>RP2040</td><td>피코 2 계열은 RP2350</td></tr>
+        <tr><td>BOOTSEL 드라이브</td><td>RPI-RP2</td><td>피코 2는 RP2350</td></tr>
+        <tr><td>Thonny 펌웨어</td><td>Raspberry Pi Pico</td><td>Pico W, Pico 2, Pico 2 W가 따로 있음</td></tr>
+        <tr><td>와이파이</td><td>없음</td><td><a href="https://github.com/greatsong/2026-vibe-pico">2026-vibe-pico</a>의 와이파이 장은 사용하지 않음</td></tr>
+        <tr><td>온보드 LED</td><td><code>Pin(25)</code></td><td>피코 W는 <code>Pin("LED")</code>. 피코 H에 그 코드를 쓰면 우리 초록 불과 다름</td></tr>
+        <tr><td>확장 보드</td><td>브레드보드</td><td><a href="https://github.com/greatsong/pico-curriculum-36">pico-curriculum-36</a>은 그로브 쉴드, 네오픽셀, 조도·소리 센서</td></tr>
+        <tr><td>코드 라이브러리</td><td>펌웨어 안의 <code>machine</code></td><td><a href="https://github.com/limtae-1/picozero_limtae">picozero_limtae</a>, <a href="https://github.com/limtae-1/kmpico-project">kmpico</a>는 피코에 파일을 복사해야 함</td></tr>
+      </table>
+    </div>
+
+    <h2>핀 약속</h2>
+    <p>정보 수업 실습은 버튼을 뺀 뒤 부저를 GP15에 꽂습니다. 여기서는 버튼과 부저를 같이 쓰므로 부저만 GP13으로 옮겼습니다. LED GP14, 버튼 GP15, 센서 GP28은 정보 수업과 같습니다.</p>
+    <div class="card">
+      <table>
+        <tr><th>부품</th><th>GP</th><th>가장자리 핀</th></tr>
+        <tr><td>온보드 LED</td><td>25</td><td>보드 위. 핀에 안 나옴</td></tr>
+        <tr><td>바깥 LED + , 저항 220Ω</td><td>14</td><td>19</td></tr>
+        <tr><td>바깥 LED −</td><td>GND</td><td>18</td></tr>
+        <tr><td>버튼</td><td>15, 반대편은 3V3</td><td>20 과 36</td></tr>
+        <tr><td>부저 +</td><td>13</td><td>17</td></tr>
+        <tr><td>센서 OUT</td><td>28</td><td>34</td></tr>
+        <tr><td>센서 VCC</td><td>VBUS 5V</td><td>40. GP 핀에 닿지 않게</td></tr>
+      </table>
+    </div>
+    <p>picozero 예제는 LED를 GP10, 버튼을 GP17, 부저를 GP15에 두는 경우가 있습니다. kmpico 안내의 <code>DigitalLED(15)</code> 도 우리 LED 핀이 아닙니다. 라이브러리를 나중에 쓰더라도 번호는 위 표로 바꿉니다.</p>
+
+    <h2>가져오고 버린 것</h2>
+    <ul class="clean">
+      <li>반응 속도 대결의 생각(무작위 대기, 밀리초, 너무 이른 누름)은 pico-curriculum-36의 5차시에서 왔습니다. 네오픽셀과 그로브 버튼 코드는 우리 LED·풀다운 버튼으로 다시 썼습니다.</li>
+      <li>반딧불이, 심장 박동, 버튼 벨은 키트 부품만으로 되도록 줄였습니다. 가변 저항, RGB, 음계는 넣지 않았습니다.</li>
+      <li>pico-makers와 36차시 뒤쪽의 대시보드, 구글 시트, 와이파이는 이 키트로 할 수 없어 넣지 않았습니다.</li>
+      <li>센서의 안정 시간, 유지 시간 다이얼, 종이컵, VBUS 주의는 정보 수업에서 이미 확인한 실습 팁을 그대로 두었습니다.</li>
+    </ul>
+
+    <h2>수업 전에 한번</h2>
+    <ol class="steps">
+      <li>케이블이 데이터용인지, Thonny 인터프리터가 Raspberry Pi Pico인지 확인합니다.</li>
+      <li>저항 색띠가 220Ω(빨강-빨강-갈색)인지 봅니다.</li>
+      <li>인체 감지 센서의 유지 시간 다이얼을 가장 짧게 돌려 둡니다. 안 그러면 8차시 LED가 몇 분씩 안 꺼집니다.</li>
+      <li>센서 글자가 VCC · OUT · GND인지, 암-수 점퍼가 키트에 있는지 봅니다.</li>
+      <li>부저에 + 표시가 있는지 보고, 7차시에서 소리가 안 나면 선을 바꾸게 안내합니다.</li>
+    </ol>
+    <p>코드는 각 차시 화면에 있고, 같은 내용이 <code>code</code> 폴더의 py 파일에도 있습니다. Thonny에서 그 파일을 열어 실행해도 됩니다.</p>
+  </main>
+</body>
+</html>

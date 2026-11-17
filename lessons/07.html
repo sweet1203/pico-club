@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7차시 · 버튼 벨</title>
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body data-page="07">
+  <header class="top">
+    <a class="brand" href="../index.html">피코 동아리<small>7차시 · 소리</small></a>
+    <nav><a href="06.html">이전</a><a class="primary" href="08.html">다음</a></nav>
+  </header>
+  <main class="wrap" data-lesson="07">
+    <span class="kicker">7차시</span>
+    <h1>버튼 벨</h1>
+    <p class="lead">버튼을 누르는 동안 부저가 울리게 합니다. 음계는 다루지 않고, 켜고 끄는 소리만 만듭니다.</p>
+
+    <div class="callout why">
+      <b>원리</b>
+      부저도 출력입니다. 핀을 켜면 소리가 나고 끄면 그칩니다. 키트 부저는 이 방식(능동 부저)으로 울리게 연결되어 있는 경우가 많습니다. 도레미처럼 음 높이를 바꾸려면 수동 부저와 다른 신호가 필요해서, 오늘은 「삑」만 합니다.
+    </div>
+    <div class="callout warn">
+      <b>자리는 GP13</b>
+      정보 수업에서는 버튼을 뺀 자리에 부저를 꽂기도 합니다. 이 동아리에서는 버튼이 GP15를 계속 쓰므로 부저는 <b>GP13, 보드 핀 17</b>입니다. 15번에 부저를 꽂으면 버튼과 자리가 겹칩니다.
+    </div>
+
+    <h2>연결</h2>
+    <p>USB를 뽑고 부저만 더합니다. LED와 버튼은 그대로 둡니다.</p>
+    <div class="card">
+      <table>
+        <tr><th>부저</th><th>연결</th></tr>
+        <tr><td>+ 또는 긴 다리, 빨간 선</td><td>GP13, 보드 핀 17</td></tr>
+        <tr><td>− 또는 짧은 다리, 검은 선</td><td>가까운 GND. 왼쪽 GND인 핀 13, 또는 오른쪽 GND인 핀 23</td></tr>
+      </table>
+    </div>
+
+    <h2>실습 · 누르는 동안 삑</h2>
+    <div class="codehead"><span>button_bell.py</span><button class="btn copy" type="button">코드 복사</button></div>
+    <pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+button = Pin(15, Pin.IN, Pin.PULL_DOWN)
+buzzer = Pin(13, Pin.OUT)
+
+while True:
+    if button.value() == 1:
+        buzzer.on()
+        led.on()
+    else:
+        buzzer.off()
+        led.off()
+    time.sleep(0.05)</code></pre>
+
+    <h2>바꿔 보기 · 세 번만 울리는 초인종</h2>
+    <p>누르는 순간 짧게 세 번만 울리고, 손을 뗄 때까지 더 울리지 않습니다.</p>
+    <div class="codehead"><span>doorbell.py</span><button class="btn copy" type="button">코드 복사</button></div>
+    <pre><code>from machine import Pin
+import time
+
+button = Pin(15, Pin.IN, Pin.PULL_DOWN)
+buzzer = Pin(13, Pin.OUT)
+before = 0
+
+while True:
+    now = button.value()
+    if now == 1 and before == 0:
+        for _ in range(3):
+            buzzer.on()
+            time.sleep(0.08)
+            buzzer.off()
+            time.sleep(0.12)
+        while button.value() == 1:
+            time.sleep(0.01)
+    before = button.value()
+    time.sleep(0.05)</code></pre>
+
+    <h2>막히면</h2>
+    <ul class="clean">
+      <li>소리가 전혀 없음 → +와 −를 바꿔 꽂아 봅니다. 능동 부저는 방향이 있습니다. 코드 숫자가 13인지도 봅니다.</li>
+      <li>딸깍 소리만 남 → 수동 부저일 수 있습니다. 오늘 목표인 「눌렀다」는 신호로는 쓸 수 있고, 노래를 만들지는 않습니다.</li>
+      <li>버튼이 안 먹고 부저만 이상함 → 부저 선이 GP15나 3V3에 닿지 않았는지 봅니다.</li>
+    </ul>
+
+    <div class="quiz" data-answer="2">
+      <p>이 동아리에서 부저 +를 꽂는 핀은?</p>
+      <div class="choices">
+        <button type="button" data-i="1">GP15. 버튼과 같은 자리</button>
+        <button type="button" data-i="2">GP13. 버튼과 다른 자리</button>
+        <button type="button" data-i="3">VBUS 5V</button>
+      </div>
+      <p class="why">버튼이 GP15를 쓰고 있으므로 부저는 GP13입니다. 5V에 부저를 직접 잇지 않습니다.</p>
+    </div>
+
+    <nav class="pager">
+      <a href="06.html">이전</a>
+      <a href="08.html">다음 · 지나가면 켜지고, 지나가면 삑</a>
+    </nav>
+  </main>
+  <script src="../js/site.js"></script>
+</body>
+</html>

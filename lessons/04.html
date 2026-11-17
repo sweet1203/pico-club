@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4차시 · 심장 박동</title>
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body data-page="04">
+  <header class="top">
+    <a class="brand" href="../index.html">피코 동아리<small>4차시 · 시간</small></a>
+    <nav><a href="03.html">이전</a><a class="primary" href="05.html">다음</a></nav>
+  </header>
+  <main class="wrap" data-lesson="04">
+    <span class="kicker">4차시</span>
+    <h1>심장 박동</h1>
+    <p class="lead">회로는 지난 시간 그대로입니다. 켜고 끄는 시간만 바꿔 두근, 두근, 쉼이 되게 합니다.</p>
+
+    <div class="callout why">
+      <b>원리</b>
+      피코는 심장 소리를 알지 못합니다. 켜진 시간과 꺼진 시간을 우리가 정하면, 보는 사람에게는 패턴이 됩니다. 심장 박동은 짧은 불 두 번과 그 뒤의 긴 쉼입니다.
+    </div>
+
+    <h2>연결</h2>
+    <p>3차시 회로를 그대로 둡니다. LED는 GP14, 짧은 다리는 GND, 사이에는 220Ω입니다.</p>
+
+    <h2>실습 · 두근두근</h2>
+    <div class="codehead"><span>heartbeat.py</span><button class="btn copy" type="button">코드 복사</button></div>
+    <pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+
+while True:
+    led.on()
+    time.sleep(0.12)
+    led.off()
+    time.sleep(0.12)
+    led.on()
+    time.sleep(0.12)
+    led.off()
+    time.sleep(0.6)</code></pre>
+    <p>위쪽 두 번의 <code>on</code> 이 두근두근이고, 마지막 <code>0.6</code> 이 다음 박동까지의 쉼입니다.</p>
+
+    <h2>바꿔 보기</h2>
+    <ul class="clean">
+      <li>쉼 <code>0.6</code> 을 <code>0.3</code> 으로 줄이면 박동이 빨라집니다. <code>1.0</code> 으로 늘이면 느려집니다.</li>
+      <li>두 번째 쉼 <code>0.12</code> 만 <code>0.25</code> 로 늘이면, 첫 박과 둘째 박 사이가 벌어집니다.</li>
+      <li>종이로 작은 하트를 접어 LED 위에 얹으면 빛이 퍼집니다. 부품은 더 필요 없습니다.</li>
+    </ul>
+    <div class="callout warn">
+      <b>다이얼은 키트에 없음</b>
+      다른 교재의 심장 예제는 가변 저항으로 빠르기를 바꿉니다. 우리는 코드의 숫자로만 바꿉니다. 숫자를 바꾼 뒤 정지하고 다시 실행합니다.
+    </div>
+
+    <h2>패턴을 하나 더</h2>
+    <p>모스 부호의 SOS는 짧게 세 번, 길게 세 번, 짧게 세 번입니다. 짧은 켜짐 0.15초, 긴 켜짐 0.45초로 정해 보고, 글자 사이에 쉼을 넣습니다. 정답이 하나만 있는 활동이 아니니 옆 사람과 패턴이 달라도 됩니다.</p>
+
+    <div class="quiz" data-answer="3">
+      <p>박동을 더 느리게 하려면 어디를 바릅니까?</p>
+      <div class="choices">
+        <button type="button" data-i="1">핀 번호를 25로</button>
+        <button type="button" data-i="2">LED 다리를 반대로</button>
+        <button type="button" data-i="3">마지막 sleep 숫자를 더 크게</button>
+      </div>
+      <p class="why">쉼이 길수록 다음 두근까지 늦어집니다. 핀을 바꾸면 다른 불이 켜지거나 안 켜집니다.</p>
+    </div>
+
+    <nav class="pager">
+      <a href="03.html">이전</a>
+      <a href="05.html">다음 · 누르면 켜지는 불</a>
+    </nav>
+  </main>
+  <script src="../js/site.js"></script>
+</body>
+</html>

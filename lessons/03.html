@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3차시 · 반딧불이</title>
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body data-page="03">
+  <header class="top">
+    <a class="brand" href="../index.html">피코 동아리<small>3차시 · 출력</small></a>
+    <nav><a href="02.html">이전</a><a class="primary" href="04.html">다음</a></nav>
+  </header>
+  <main class="wrap" data-lesson="03">
+    <span class="kicker">3차시</span>
+    <h1>반딧불이</h1>
+    <p class="lead">바깥 LED 하나를 저항과 함께 연결하고, 짧게 몇 번 깜박인 뒤 쉬는 패턴을 만듭니다.</p>
+
+    <div class="callout why">
+      <b>원리</b>
+      출력 핀이 켜지면 그 핀은 약 3.3V가 되고, 꺼지면 0V가 됩니다. LED는 긴 다리(+)에서 짧은 다리(−)로 전기가 흐를 때만 빛이 납니다. 저항은 전류를 줄여 LED가 타지 않게 합니다. 우리 저항은 220Ω입니다.
+    </div>
+
+    <h2>연결</h2>
+    <p>USB를 뽑고 연결한 다음 다시 꽂습니다. 피코는 브레드보드 가운데 홈에 걸칩니다. 이어야 하는 다리는 같은 세로줄에 둡니다.</p>
+    <div class="card">
+      <table>
+        <tr><th>부품</th><th>연결</th></tr>
+        <tr><td>저항 한쪽</td><td>GP14, 보드 핀 19와 같은 세로줄</td></tr>
+        <tr><td>저항 다른 쪽과 LED 긴 다리</td><td>서로 같은 세로줄</td></tr>
+        <tr><td>LED 짧은 다리</td><td>GND, 보드 핀 18과 같은 세로줄</td></tr>
+      </table>
+    </div>
+    <div class="callout stop">
+      <b>방향</b>
+      긴 다리가 GND 쪽이면 불이 켜지지 않습니다. 저항 없이 LED만 3V3에 바로 잇지 않습니다.
+    </div>
+
+    <h2>실습 · 1초마다 깜박이기</h2>
+    <p>이전 실행이 남아 있으면 정지한 뒤 실행합니다. 이 코드는 멈추기 전까지 계속 돕니다.</p>
+    <div class="codehead"><span>blink.py</span><button class="btn copy" type="button">코드 복사</button></div>
+    <pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+
+while True:
+    led.on()
+    time.sleep(1)
+    led.off()
+    time.sleep(1)</code></pre>
+    <p>1을 0.2로 바꾸면 더 빨리 깜박입니다. 숫자를 바꾼 뒤에는 정지하고 다시 실행합니다.</p>
+
+    <h2>실습 · 반딧불이 패턴</h2>
+    <p>반딧불이는 계속 같은 속도로 깜박이지 않습니다. 짧게 세 번 켜고 한참 쉽니다. <code>for</code> 가 세 번 반복이고, 그 뒤 <code>sleep(1.2)</code> 가 쉼입니다.</p>
+    <div class="codehead"><span>firefly.py</span><button class="btn copy" type="button">코드 복사</button></div>
+    <pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+
+while True:
+    for i in range(3):
+        led.on()
+        time.sleep(0.12)
+        led.off()
+        time.sleep(0.12)
+    time.sleep(1.2)</code></pre>
+    <ul class="clean">
+      <li><code>range(3)</code> 을 <code>range(5)</code> 로 바꾸면 한 묶음에 다섯 번 깜박입니다.</li>
+      <li>마지막 <code>1.2</code> 를 <code>0.4</code> 로 바꾸면 쉼이 짧아집니다.</li>
+      <li>불이 켜졌는데 패턴이 안 보이면, 기다리는 시간이 너무 짧은지 봅니다.</li>
+    </ul>
+
+    <h2>막히면</h2>
+    <ul class="clean">
+      <li>코드는 도는데 바깥 LED만 꺼져 있음 → 긴 다리 방향, 같은 세로줄, 숫자 14를 확인합니다. 온보드 코드(25번)로 보드가 살아 있는지도 봅니다.</li>
+      <li>가운데 홈 건너편에 다리를 꽂으면 이어지지 않습니다.</li>
+      <li>이전 코드가 아직 돌고 있으면 새 코드가 안 먹습니다. 정지를 먼저 누릅니다.</li>
+    </ul>
+
+    <div class="quiz" data-answer="1">
+      <p>LED 긴 다리는 어느 쪽입니까?</p>
+      <div class="choices">
+        <button type="button" data-i="1">저항을 거쳐 GP14 쪽</button>
+        <button type="button" data-i="2">GND 쪽</button>
+        <button type="button" data-i="3">5V인 VBUS 쪽</button>
+      </div>
+      <p class="why">긴 다리가 +입니다. 전기는 GP14에서 저항, LED, GND 순으로 흐릅니다.</p>
+    </div>
+    <div class="quiz" data-answer="2">
+      <p>저항을 끼우는 이유는?</p>
+      <div class="choices">
+        <button type="button" data-i="1">LED 색을 바꾸려고</button>
+        <button type="button" data-i="2">전류를 줄여 LED를 지키려고</button>
+        <button type="button" data-i="3">와이파이를 연결하려고</button>
+      </div>
+      <p class="why">피코 핀 전압은 3.3V로 고정이고, 저항이 전류를 제한합니다. 우리 값은 220Ω입니다.</p>
+    </div>
+
+    <nav class="pager">
+      <a href="02.html">이전</a>
+      <a href="04.html">다음 · 심장 박동</a>
+    </nav>
+  </main>
+  <script src="../js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5차시 · 누르면 켜지는 불</title>
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body data-page="05">
+  <header class="top">
+    <a class="brand" href="../index.html">피코 동아리<small>5차시 · 입력</small></a>
+    <nav><a href="04.html">이전</a><a class="primary" href="06.html">다음</a></nav>
+  </header>
+  <main class="wrap" data-lesson="05">
+    <span class="kicker">5차시</span>
+    <h1>누르면 켜지는 불</h1>
+    <p class="lead">LED 회로는 그대로 두고 버튼을 더합니다. 누르고 있는 동안에만 불이 켜집니다.</p>
+
+    <div class="callout why">
+      <b>원리</b>
+      입력 핀은 바깥 전압을 읽습니다. 풀다운(<code>Pin.PULL_DOWN</code>)은 누르지 않았을 때 값을 0으로 붙잡아 둡니다. 버튼을 누르면 GP15와 3.3V가 이어져 값이 1이 됩니다. <code>if</code> 는 그 1일 때만 LED를 켭니다.
+    </div>
+
+    <h2>연결</h2>
+    <p>USB를 뽑고 버튼을 더합니다. 버튼은 다리가 네 개입니다. 브레드보드 가운데 홈에 걸치고, <b>대각선으로 마주 보는 두 다리</b>를 씁니다.</p>
+    <div class="card">
+      <table>
+        <tr><th>부품</th><th>연결</th></tr>
+        <tr><td>LED와 저항</td><td>지난 시간 그대로. GP14, GND 핀 18</td></tr>
+        <tr><td>버튼 다리 하나</td><td>GP15, 보드 핀 20</td></tr>
+        <tr><td>버튼의 대각선 반대 다리</td><td>3V3, 보드 핀 36</td></tr>
+      </table>
+    </div>
+    <div class="callout stop">
+      <b>3V3만</b>
+      버튼 선은 핀 36에만 꽂습니다. 핀 39·40(5V)과 핀 37에는 꽂지 않습니다.
+    </div>
+
+    <h2>실습 · 누르는 동안 켜기</h2>
+    <div class="codehead"><span>button_led.py</span><button class="btn copy" type="button">코드 복사</button></div>
+    <pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+button = Pin(15, Pin.IN, Pin.PULL_DOWN)
+
+while True:
+    if button.value() == 1:
+        led.on()
+    else:
+        led.off()
+    time.sleep(0.05)</code></pre>
+    <ul class="clean">
+      <li><code>Pin.IN</code> 은 읽기 전용입니다. 버튼 핀을 <code>OUT</code>으로 두면 3.3V와 출력이 부딪힐 수 있습니다.</li>
+      <li><code>value()</code> 가 1이면 눌린 것, 0이면 뗀 것입니다.</li>
+      <li>마지막 <code>sleep(0.05)</code> 는 너무 바쁘게 읽지 않으려고 넣는 짧은 쉼입니다.</li>
+    </ul>
+
+    <h2>바꿔 보기</h2>
+    <p>누를 때마다 켜짐과 꺼짐이 바뀌게 하려면, 누르는 순간만 잡아야 합니다. 아래는 그 예입니다. 손을 떼기 전에는 한 번만 바뀝니다.</p>
+    <div class="codehead"><span>button_toggle.py</span><button class="btn copy" type="button">코드 복사</button></div>
+    <pre><code>from machine import Pin
+import time
+
+led = Pin(14, Pin.OUT)
+button = Pin(15, Pin.IN, Pin.PULL_DOWN)
+led.off()
+before = 0
+
+while True:
+    now = button.value()
+    if now == 1 and before == 0:
+        if led.value() == 1:
+            led.off()
+        else:
+            led.on()
+    before = now
+    time.sleep(0.05)</code></pre>
+
+    <h2>막히면</h2>
+    <ul class="clean">
+      <li>안 눌러도 불이 계속 켜짐 → 버튼 다리가 항상 붙어 있거나, 3V3 줄과 GP15 줄이 합선입니다. USB를 뽑고 줄을 다시 봅니다.</li>
+      <li>눌러도 반응이 없음 → 대각선 다리가 맞는지, 코드 숫자가 15와 14인지 확인합니다.</li>
+      <li>셸에 글자가 없고 불만 보면 됩니다. 이 코드는 <code>print</code> 가 없습니다.</li>
+    </ul>
+
+    <div class="quiz" data-answer="1">
+      <p>버튼을 누르지 않았을 때 값이 0으로 유지되는 설정은?</p>
+      <div class="choices">
+        <button type="button" data-i="1">Pin.PULL_DOWN</button>
+        <button type="button" data-i="2">Pin.OUT</button>
+        <button type="button" data-i="3">VBUS에 연결</button>
+      </div>
+      <p class="why">풀다운이 없으면 안 누른 값이 0과 1 사이를 흔들릴 수 있습니다. 5V에 연결하는 것은 위험합니다.</p>
+    </div>
+
+    <nav class="pager">
+      <a href="04.html">이전</a>
+      <a href="06.html">다음 · 반응 속도 대결</a>
+    </nav>
+  </main>
+  <script src="../js/site.js"></script>
+</body>
+</html>
