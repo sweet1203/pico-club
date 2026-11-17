@@ -1,16 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440">
-  <rect width="820" height="440" rx="18" fill="#f7f1e6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460">
+  <rect width="860" height="460" rx="18" fill="#f7f1e6"/>
   <text x="24" y="36" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="22" font-weight="700" fill="#16202c">센서 세 선</text>
-  <rect x="520" y="70" width="250" height="300" rx="16" fill="#1f9d74"/>
-  <text x="645" y="110" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="20" font-weight="700" fill="#fff">PIR</text>
-  <text x="560" y="170" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#fff">VCC</text>
-  <text x="560" y="250" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#fff">OUT</text>
-  <text x="560" y="330" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#fff">GND</text>
-  <path d="M520 170 H180" fill="none" stroke="#d64535" stroke-width="5"/>
-  <path d="M520 250 H180" fill="none" stroke="#2f6fd0" stroke-width="5"/>
-  <path d="M520 330 H180" fill="none" stroke="#5b6776" stroke-width="5"/>
-  <text x="24" y="176" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#8d2f2f">pin 40  VBUS</text>
-  <text x="24" y="256" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#2f6fd0">GP28  pin 34</text>
-  <text x="24" y="336" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#5b6776">GND  pin 38</text>
-  <text x="24" y="410" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#8d2f2f">5V는 VCC만</text>
+  <text x="250" y="78" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" font-weight="700" fill="#5b6776">핀</text>
+  <text x="390" y="78" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" font-weight="700" fill="#5b6776">점퍼</text>
+  <rect x="210" y="100" width="230" height="32" rx="8" fill="#f8d0d0"/>
+  <rect x="210" y="190" width="230" height="32" rx="8" fill="#d6e4f8"/>
+  <rect x="210" y="280" width="230" height="32" rx="8" fill="#e7e1d6"/>
+  <circle cx="250" cy="116" r="8" fill="#0f2742"/>
+  <circle cx="390" cy="116" r="8" fill="#0f2742"/>
+  <circle cx="250" cy="206" r="8" fill="#0f2742"/>
+  <circle cx="390" cy="206" r="8" fill="#0f2742"/>
+  <circle cx="250" cy="296" r="8" fill="#0f2742"/>
+  <circle cx="390" cy="296" r="8" fill="#0f2742"/>
+  <text x="24" y="122" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="15" font-weight="700" fill="#8d2f2f">pin 40</text>
+  <text x="24" y="212" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="15" font-weight="700" fill="#2f6fd0">GP28</text>
+  <text x="24" y="302" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="15" font-weight="700" fill="#5b6776">pin 38</text>
+  <path d="M390 116 H520" fill="none" stroke="#d64535" stroke-width="4"/>
+  <path d="M390 206 H520" fill="none" stroke="#2f6fd0" stroke-width="4"/>
+  <path d="M390 296 H520" fill="none" stroke="#5b6776" stroke-width="4"/>
+  <rect x="520" y="70" width="300" height="280" rx="16" fill="#1f9d74"/>
+  <text x="670" y="110" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="20" font-weight="700" fill="#fff">PIR</text>
+  <text x="560" y="122" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#fff">VCC</text>
+  <text x="560" y="212" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#fff">OUT</text>
+  <text x="560" y="302" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#fff">GND</text>
+  <text x="24" y="400" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#8d2f2f">5V는 VCC만</text>
+  <text x="24" y="432" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#16202c">점퍼는 핀 옆 구멍</text>
 </svg>

@@ -1,22 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420">
-  <rect width="820" height="420" rx="18" fill="#f7f1e6"/>
-  <text x="24" y="36" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="22" font-weight="700" fill="#16202c">부저 +, GP13</text>
-  <rect x="150" y="70" width="110" height="280" rx="10" fill="#143d32"/>
-  <text x="205" y="210" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" font-weight="700" fill="#ffffff">PICO</text>
-  <text x="24" y="118" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="15" font-weight="700" fill="#16202c">GND</text>
-  <text x="24" y="140" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="13" font-weight="400" fill="#5b6776">pin 13</text>
-  <text x="24" y="268" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="15" font-weight="700" fill="#16202c">GP13</text>
-  <text x="24" y="290" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="13" font-weight="400" fill="#5b6776">pin 17</text>
-  <rect x="280" y="100" width="250" height="32" rx="8" fill="#e7e1d6"/>
-  <rect x="280" y="250" width="250" height="32" rx="8" fill="#fde4c8"/>
-  <circle cx="340" cy="116" r="8" fill="#0f2742"/>
-  <circle cx="340" cy="266" r="8" fill="#0f2742"/>
-  <path d="M500 116 H620 V180" fill="none" stroke="#5b6776" stroke-width="4"/>
-  <path d="M500 266 H620 V240" fill="none" stroke="#e0702b" stroke-width="4"/>
-  <circle cx="640" cy="210" r="36" fill="#e0702b"/>
-  <text x="640" y="198" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="18" font-weight="700" fill="#fff">−</text>
-  <text x="640" y="230" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="18" font-weight="700" fill="#fff">+</text>
-  <text x="690" y="160" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#5b6776">−</text>
-  <text x="690" y="250" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#e0702b">+</text>
-  <text x="24" y="380" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#16202c">LED  pin 18, 19  그대로</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440">
+  <rect width="860" height="440" rx="18" fill="#f7f1e6"/>
+  <text x="24" y="36" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="22" font-weight="700" fill="#16202c">부저 +  GP13</text>
+  <rect x="130" y="70" width="100" height="290" rx="10" fill="#143d32"/>
+  <text x="180" y="220" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="14" font-weight="700" fill="#fff">PICO</text>
+  <text x="24" y="130" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#16202c">GND</text>
+  <text x="24" y="152" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="13" font-weight="400" fill="#5b6776">pin 13</text>
+  <text x="24" y="280" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#16202c">GP13</text>
+  <text x="24" y="302" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="13" font-weight="400" fill="#5b6776">pin 17</text>
+  <rect x="250" y="108" width="300" height="32" rx="8" fill="#e7e1d6"/>
+  <rect x="250" y="258" width="300" height="32" rx="8" fill="#fde4c8"/>
+  <circle cx="300" cy="124" r="8" fill="#0f2742"/>
+  <circle cx="470" cy="124" r="8" fill="#0f2742"/>
+  <circle cx="300" cy="274" r="8" fill="#0f2742"/>
+  <circle cx="470" cy="274" r="8" fill="#0f2742"/>
+  <text x="286" y="98" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="13" font-weight="700" fill="#5b6776">핀</text>
+  <text x="456" y="98" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#5b6776">−</text>
+  <text x="286" y="248" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="13" font-weight="700" fill="#8a4b12">핀</text>
+  <text x="456" y="248" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#e0702b">+</text>
+  <path d="M470 124 H620 V168" fill="none" stroke="#5b6776" stroke-width="4"/>
+  <path d="M470 274 H620 V236" fill="none" stroke="#e0702b" stroke-width="4"/>
+  <circle cx="656" cy="202" r="36" fill="#e0702b"/>
+  <text x="656" y="190" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="18" font-weight="700" fill="#fff">−</text>
+  <text x="656" y="222" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="18" font-weight="700" fill="#fff">+</text>
+  <text x="24" y="400" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="16" font-weight="700" fill="#16202c">LED pin 18, 19  그대로</text>
 </svg>

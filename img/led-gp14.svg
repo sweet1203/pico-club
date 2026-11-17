@@ -17,7 +17,7 @@
     <rect x="340" y="388" width="280" height="32" rx="8" fill="#d7f3ee"/>
   </g>
   <g fill="#0f2742">
-    <circle cx="370" cy="134" r="8"/><circle cx="470" cy="134" r="8"/>
+    <circle cx="370" cy="134" r="8"/><text x="352" y="112" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="12" font-weight="700" fill="#5b6776">핀</text><text x="352" y="172" text-anchor="start" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="12" font-weight="700" fill="#8a4b12">핀</text><circle cx="470" cy="134" r="8"/>
     <circle cx="370" cy="194" r="8"/><circle cx="470" cy="194" r="8"/>
     <circle cx="370" cy="254" r="8"/>
     <circle cx="440" cy="404" r="8"/><circle cx="580" cy="404" r="8"/>
